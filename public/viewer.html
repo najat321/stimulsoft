@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Stimulsoft Viewer</title>
+
+    <link href="/stimulsoft/Css/stimulsoft.viewer.office2013.whiteblue.css" rel="stylesheet">
+
+    <script src="/stimulsoft/Scripts/stimulsoft.reports.js"></script>
+    <script src="/stimulsoft/Scripts/stimulsoft.viewer.js"></script>
+</head>
+
+<body>
+    <div id="viewerContent"></div>
+
+    <script type="text/javascript">
+        var options = new Stimulsoft.Viewer.StiViewerOptions();
+        options.appearance.fullScreenMode = true;
+        var viewer = new Stimulsoft.Viewer.StiViewer(options, "StiViewer", false);
+        var report = new Stimulsoft.Report.StiReport();
+
+        (async () => {
+            try {
+                //licensing
+                const licenseRes = await fetch('/api/license');
+                const licenseData = await licenseRes.json();
+                if (licenseData.key) {
+                    Stimulsoft.Base.StiLicense.Key = licenseData.key;
+                    console.log("Stimulsoft license activated.");
+                }
+
+                const res = await fetch('/api/customers');
+                const data = await res.json();
+                var dataSet = new Stimulsoft.System.Data.DataSet("SQLData");
+                dataSet.readJson(data);
+
+                // 1b. Fetch ManWinWin Data
+                var mwwDataSet;
+                try {
+                    const mwwRes = await fetch('/api/mww/items');
+                    if (mwwRes.ok) {
+                        const mwwData = await mwwRes.json();
+                        mwwDataSet = new Stimulsoft.System.Data.DataSet("ManWinWin");
+                        mwwDataSet.readJson(mwwData);
+                    }
+                } catch (e) { console.warn("MWW fetch fail", e); }
+
+                try {
+                    report.loadFile("reports/Report.mrt");
+                } catch (e) {
+                    console.error("Report file not found. Please create and save a report in the Designer first.", e);
+                    alert("Report file not found. Please save a report in the Designer first.");
+                    return;
+                }
+
+                report.regData("Customers", "Customers", dataSet);
+                if (mwwDataSet !== undefined) {
+                    report.regData("ManWinWin", "Items", mwwDataSet);
+                }
+                report.dictionary.synchronize();
+
+                viewer.report = report;
+                viewer.renderHtml("viewerContent");
+            } catch (err) {
+                console.error("Error loading viewer:", err);
+            }
+        })();
+    </script>
+</body>
+
+</html>

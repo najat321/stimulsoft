@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Stimulsoft Designer</title>
+
+    <link href="/stimulsoft/Css/stimulsoft.designer.office2013.whiteblue.css" rel="stylesheet">
+    <link href="/stimulsoft/Css/stimulsoft.viewer.office2013.whiteblue.css" rel="stylesheet">
+
+    <script src="/stimulsoft/Scripts/stimulsoft.reports.js"></script>
+    <script src="/stimulsoft/Scripts/stimulsoft.viewer.js"></script>
+    <script src="/stimulsoft/Scripts/stimulsoft.designer.js"></script>
+</head>
+
+<body>
+    <div style="padding: 10px; background: #f0f0f0; border-bottom: 1px solid #ccc;">
+        <label for="reportSelect">Select Report: </label>
+        <select id="reportSelect"></select>
+        <button onclick="loadSelectedReport()">Load Report</button>
+    </div>
+    <div id="designerContent"></div>
+
+    <script type="text/javascript">
+        var options = new Stimulsoft.Designer.StiDesignerOptions();
+        options.appearance.fullScreenMode = true;
+
+        // Create the designer immediately
+        var designer = new Stimulsoft.Designer.StiDesigner(options, "StiDesigner", false);
+
+        // Define save event
+        //report.saveToJsonString()
+        designer.onSaveReport = function (args) {
+            var reportContent = args.report.saveToJsonString();
+            var fileName = args.fileName || "Report.mrt";
+
+            fetch('/api/save-report', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    fileName: fileName,
+                    reportContent: reportContent
+                })
+            })
+                .then(response => {
+                    if (response.ok) {
+                        console.log("Report saved successfully.");
+                    } else {
+                        console.error("Failed to save report: " + response.statusText);
+                        alert("Failed to save report.");
+                    }
+                })
+                .catch(error => {
+                    console.error("Error saving report:", error);
+                    alert("Error saving report.");
+                });
+        };
+
+        // Render immediately so the UI appears
+        designer.renderHtml("designerContent");
+
+        var report = new Stimulsoft.Report.StiReport(); // 1. Create a new report instance
+        var dataSet = null; // 2. Initialize data sets
+        var mwwDataSet = null;
+        var randomDataSet = null;
+
+        (async () => {
+            try {
+                try {
+                    //licensing
+                    const licenseRes = await fetch('/api/license');
+                    const licenseData = await licenseRes.json();
+                    if (licenseData.key) {
+                        Stimulsoft.Base.StiLicense.Key = licenseData.key;
+                        console.log("Stimulsoft license activated.");
+                    }
+                } catch (err) {
+                    console.error("License fetch failed:", err);
+                }
+
+                // client side data fetching from mssql (server.js)
+                const res = await fetch('/api/data');
+                const data = await res.json();
+
+                dataSet = new Stimulsoft.System.Data.DataSet("SQLData");
+                dataSet.readJson(data);
+
+                report.regData("Customers", "Customers", dataSet);
+                report.regData("SQLData", "SQLData", dataSet);
+
+                // Fetch ManWinWin Data 
+                try {
+                    const mwwRes = await fetch('/api/mww/items');
+                    if (mwwRes.ok) {
+                        const mwwData = await mwwRes.json();
+                        mwwDataSet = new Stimulsoft.System.Data.DataSet("ManWinWin");
+                        mwwDataSet.readJson(mwwData);
+                        report.regData("ManWinWin", "Items", mwwDataSet);
+                    } else {
+                        console.warn("ManWinWin data fetch failed, skipping.");
+                    }
+                } catch (e) {
+                    console.warn("ManWinWin fetch error:", e);
+                }
+
+                // Random Data
+                try {
+                    const rndRes = await fetch('/api/random-data');
+                    if (rndRes.ok) {
+                        const rndData = await rndRes.json();
+                        randomDataSet = new Stimulsoft.System.Data.DataSet("RandomData");
+                        randomDataSet.readJson({ RandomItems: rndData }); // Wrap in object to create named table
+                        report.regData("RandomData", "RandomData", randomDataSet);
+                    }
+                } catch (e) {
+                    console.warn("Random data fetch error:", e);
+                }
+
+                try {
+                    // Populate report list
+                    const reportsRes = await fetch('/api/reports');
+                    const reports = await reportsRes.json();
+                    const select = document.getElementById('reportSelect');
+
+                    reports.forEach(r => {
+                        const option = document.createElement('option');
+                        option.value = r;
+                        option.text = r;
+                        select.appendChild(option);
+                    });
+
+                    // Set default if exists
+                    if (reports.includes("Report.mrt")) {
+                        select.value = "Report.mrt";
+                    }
+
+                    // Initial load
+                    loadSelectedReport();
+                } catch (e) {
+                    console.error("Error setting up reports:", e);
+                    // Fallback check
+                    try {
+                        report.loadFile("reports/Report.mrt");
+                        designer.report = report;
+                        designer.renderHtml("designerContent");
+                    } catch (err) {
+                        console.log("No default report found.", err);
+                    }
+                }
+
+                designer.renderHtml("designerContent");
+            } catch (err) {
+                console.error("Error loading data:", err);
+            }
+        })();
+
+        async function loadSelectedReport() {
+            const select = document.getElementById('reportSelect');
+            const fileName = select.value;
+            if (!fileName) return;
+
+            console.log("Loading report:", fileName);
+            try {
+
+                report.loadFile("reports/" + fileName);
+
+                // Re-register data sources
+                if (dataSet) {
+                    report.regData("SQLData", "SQLData", dataSet);
+                }
+                if (mwwDataSet) {
+                    report.regData("ManWinWin", "Items", mwwDataSet);
+                }
+
+                if (randomDataSet) {
+                    try {
+                        const rndRes = await fetch('/api/random-data');
+                        if (rndRes.ok) {
+                            const rndData = await rndRes.json();
+                            randomDataSet = new Stimulsoft.System.Data.DataSet("RandomData");
+                            randomDataSet.readJson({ RandomItems: rndData });
+                        }
+                    } catch (e) { console.warn("Random refresh failed", e); }
+
+                    report.regData("RandomData", "RandomData", randomDataSet);
+                }
+
+                report.dictionary.synchronize();
+                designer.report = report;
+
+            } catch (e) {
+                console.error("Failed to load report " + fileName, e);
+                alert("Failed to load report " + fileName);
+            }
+        }
+    </script>
+</body>
+
+</html>
