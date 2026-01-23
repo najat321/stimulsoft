@@ -1,11 +1,11 @@
 {
   "ReportVersion": "2026.1.2",
-  "ReportGuid": "f2472fe66a5979c3f457553ebf5c1733",
+  "ReportGuid": "66aef0c352cfc9d2b3ed7debe69fcad9",
   "ReportName": "Report",
   "ReportAlias": "Report",
-  "ReportFile": "reports/Compliances.mrt",
+  "ReportFile": "Compliances.mrt",
   "ReportCreated": "/Date(1769135971000+0800)/",
-  "ReportChanged": "/Date(1769154245000+0800)/",
+  "ReportChanged": "/Date(1769159105000+0800)/",
   "EngineVersion": "EngineV2",
   "ReportUnit": "Centimeters",
   "ScriptLanguage": "CSharp",
@@ -42,6 +42,29 @@
         },
         "Alias": "ItemName",
         "Type": "System.String",
+        "RequestFromUser": true,
+        "ShowOnParametersPanel": true
+      },
+      "2": {
+        "Value": "1/23/2000 12:00:00 AM",
+        "Name": "DateFrom",
+        "DialogInfo": {
+          "SortDirection": "None",
+          "CheckedColumn": ";"
+        },
+        "Alias": "DateFrom",
+        "Type": "System.DateTime",
+        "RequestFromUser": true,
+        "ShowOnParametersPanel": true
+      },
+      "3": {
+        "Value": "12/31/2030 12:00:00 AM",
+        "Name": "DateTo",
+        "DialogInfo": {
+          "SortDirection": "None"
+        },
+        "Alias": "DateTo",
+        "Type": "System.DateTime",
         "RequestFromUser": true,
         "ShowOnParametersPanel": true
       }
@@ -1313,6 +1336,20 @@
               "Item": "Expression",
               "Expression": {
                 "Value": "{(ItemName == \"\") || (Compliances.ItemName == ItemName)}"
+              }
+            },
+            "2": {
+              "Ident": "StiFilter",
+              "Item": "Expression",
+              "Expression": {
+                "Value": "{(Compliances.expiryDate >= DateFrom)}"
+              }
+            },
+            "3": {
+              "Ident": "StiFilter",
+              "Item": "Expression",
+              "Expression": {
+                "Value": "{(Compliances.expiryDate <= DateTo)}"
               }
             }
           },

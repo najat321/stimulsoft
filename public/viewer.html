@@ -1,11 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <title>Stimulsoft Viewer</title>
-
     <link href="/stimulsoft/Css/stimulsoft.viewer.office2013.whiteblue.css" rel="stylesheet">
-
     <script src="/stimulsoft/Scripts/stimulsoft.reports.js"></script>
     <script src="/stimulsoft/Scripts/stimulsoft.viewer.js"></script>
 </head>
@@ -14,58 +11,50 @@
     <div id="viewerContent"></div>
 
     <script type="text/javascript">
+        // 1. Configure the Viewer Options
         var options = new Stimulsoft.Viewer.StiViewerOptions();
-        options.appearance.fullScreenMode = true;
+        options.appearance.fullScreenMode = true; // Makes it fit the window
+        options.toolbar.viewMode = Stimulsoft.Viewer.StiWebViewMode.Continuous; // Better scrolling
+        
         var viewer = new Stimulsoft.Viewer.StiViewer(options, "StiViewer", false);
         var report = new Stimulsoft.Report.StiReport();
 
         (async () => {
             try {
-                //licensing
-                const licenseRes = await fetch('/api/license');
-                const licenseData = await licenseRes.json();
-                if (licenseData.key) {
-                    Stimulsoft.Base.StiLicense.Key = licenseData.key;
-                    console.log("Stimulsoft license activated.");
-                }
-
-                const res = await fetch('/api/customers');
+                // --- A. LOAD DATA ---
+                // fetch from '/api/data' because that is where server.js sends the "Compliances" table
+                const res = await fetch('/api/data');
                 const data = await res.json();
+
+                // Create a DataSet and feed the JSON into it
                 var dataSet = new Stimulsoft.System.Data.DataSet("SQLData");
                 dataSet.readJson(data);
 
-                // 1b. Fetch ManWinWin Data
-                var mwwDataSet;
+                // --- B. LOAD REPORT ---
+                // Pointing to the specific file
                 try {
-                    const mwwRes = await fetch('/api/mww/items');
-                    if (mwwRes.ok) {
-                        const mwwData = await mwwRes.json();
-                        mwwDataSet = new Stimulsoft.System.Data.DataSet("ManWinWin");
-                        mwwDataSet.readJson(mwwData);
-                    }
-                } catch (e) { console.warn("MWW fetch fail", e); }
-
-                try {
-                    report.loadFile("reports/Report.mrt");
+                    report.loadFile("reports/Compliances.mrt");
                 } catch (e) {
-                    console.error("Report file not found. Please create and save a report in the Designer first.", e);
-                    alert("Report file not found. Please save a report in the Designer first.");
+                    alert("Report file 'reports/Compliances.mrt' not found. Please save it in the Designer first.");
                     return;
                 }
 
-                report.regData("Customers", "Customers", dataSet);
-                if (mwwDataSet !== undefined) {
-                    report.regData("ManWinWin", "Items", mwwDataSet);
-                }
+                // --- C. REGISTER DATA & RENDER ---
+                // Register the data so the report can see the data
+                report.regData("SQLData", "SQLData", dataSet);
+                
+                // Synchronize ensures the dictionary structure matches the data
                 report.dictionary.synchronize();
 
+                // Assign to viewer and show
                 viewer.report = report;
                 viewer.renderHtml("viewerContent");
+
             } catch (err) {
                 console.error("Error loading viewer:", err);
+                document.body.innerHTML = "<h3>Error loading report. Check console (F12) for details.</h3>";
             }
         })();
     </script>
 </body>
-
 </html>
