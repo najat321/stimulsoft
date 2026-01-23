@@ -18,7 +18,7 @@ const dbConfig = {
     server: process.env.DB_SERVER,
     database: process.env.DB_NAME,
     options: {
-        encrypt: true,
+        encrypt: false,
         trustServerCertificate: true
     }
 };
@@ -96,7 +96,7 @@ async function startServer() {
             }
             return res;
         }
-        // ManWinWin API
+        /*// ManWinWin API
         app.get('/api/mww/items', async (req, res) => {
             try {
                 const apiBase = process.env.MW_API_URL;
@@ -137,7 +137,7 @@ async function startServer() {
                 console.error("[ERROR] ManWinWin Proxy Error:", err);
                 res.status(500).send("Proxy Error");
             }
-        });
+        }); */
 
         // Random Data Generator
         function generateRandomData() {
@@ -163,12 +163,31 @@ async function startServer() {
         // SQL Data fetching
         app.get('/api/data', async (req, res) => {
             try {
-                let customersResult = await pool.request().query("SELECT * FROM Customers");
-                let materialsResult = await pool.request().query("SELECT * FROM materials");
+                // 1. Fetch data from your specific tables
+                const cems = await pool.request().query("SELECT * FROM CEMS");
+                const clinicalWaste = await pool.request().query("SELECT * FROM clinical_waste_track");
+                const drivers = await pool.request().query("SELECT * FROM drivers_compliance");
+                const idleDowntime = await pool.request().query("SELECT * FROM Idle_Downtime");
+                const paramLimits = await pool.request().query("SELECT * FROM parameter_limits");
+                const statutory = await pool.request().query("SELECT * FROM statutory_compliance");
+                const testingKIP = await pool.request().query("SELECT * FROM Testing_KIP");
+                const transport = await pool.request().query("SELECT * FROM transport_compliance");
+                const users = await pool.request().query("SELECT * FROM users");
+                const wasteTreated = await pool.request().query("SELECT * FROM Waste_Treated");
 
+                // 2. Return them as a JSON object
+                // The keys (left side) are the names you will see in the Designer
                 res.json({
-                    Customers: customersResult.recordset,
-                    Materials: materialsResult.recordset
+                    CEMS: cems.recordset,
+                    ClinicalWaste: clinicalWaste.recordset,
+                    DriversCompliance: drivers.recordset,
+                    IdleDowntime: idleDowntime.recordset,
+                    ParameterLimits: paramLimits.recordset,
+                    StatutoryCompliance: statutory.recordset,
+                    TestingKIP: testingKIP.recordset,
+                    TransportCompliance: transport.recordset,
+                    Users: users.recordset,
+                    WasteTreated: wasteTreated.recordset
                 });
             } catch (e) {
                 console.error("[ERROR] SQL Query Failed:", e.message);
