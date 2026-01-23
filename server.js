@@ -73,7 +73,7 @@ async function startServer() {
             res.json({ key: key || "" });
         });
 
-        // Helper to flatten nested objects (1:1 relationships)
+        /*// Helper to flatten nested objects (1:1 relationships)
         function flattenData(data) {
             if (Array.isArray(data)) {
                 return data.map(item => flattenObject(item));
@@ -95,12 +95,12 @@ async function startServer() {
                 }
             }
             return res;
-        }
+        } */
 
         // SQL Data fetching
         app.get('/api/data', async (req, res) => {
             try {
-                // 1. Fetch data from your specific tables
+                // 1. Fetch individual tables
                 const cems = await pool.request().query("SELECT * FROM CEMS");
                 const clinicalWaste = await pool.request().query("SELECT * FROM clinical_waste_track");
                 const drivers = await pool.request().query("SELECT * FROM drivers_compliance");
@@ -112,9 +112,44 @@ async function startServer() {
                 const users = await pool.request().query("SELECT * FROM users");
                 const wasteTreated = await pool.request().query("SELECT * FROM Waste_Treated");
 
-                // 2. Return them as a JSON object
-                // The keys (left side) are the names you will see in the Designer
+                // 2. Create the Unified Compliances Table
+                // use UNION ALL to stack them
+                const allCompliances = await pool.request().query(`
+                    SELECT 
+                        'Driver' AS Category, 
+                        driverName AS ItemName, 
+                        licenseType AS LicenseDetail, 
+                        expiryDate, 
+                        remarks 
+                    FROM drivers_compliance
+                    
+                    UNION ALL
+                    
+                    SELECT 
+                        'Statutory' AS Category, 
+                        equipment AS ItemName, 
+                        licenseNo AS LicenseDetail, 
+                        expiryDate, 
+                        remarks 
+                    FROM statutory_compliance
+                    
+                    UNION ALL
+                    
+                    SELECT 
+                        'Transport' AS Category, 
+                        vehicleNo AS ItemName, 
+                        licenseType AS LicenseDetail, 
+                        expiryDate, 
+                        remarks 
+                    FROM transport_compliance
+                `);
+
+                // 3. Return them in the JSON
                 res.json({
+                    // This new table "Compliances" will appear in Designer
+                    Compliances: allCompliances.recordset,
+                    
+                    // The original tables
                     CEMS: cems.recordset,
                     ClinicalWaste: clinicalWaste.recordset,
                     DriversCompliance: drivers.recordset,
