@@ -96,69 +96,6 @@ async function startServer() {
             }
             return res;
         }
-        /*// ManWinWin API
-        app.get('/api/mww/items', async (req, res) => {
-            try {
-                const apiBase = process.env.MW_API_URL;
-                const tokenResponse = await fetch(`${apiBase}/MwwAPI/api/Token`, {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-                    body: new URLSearchParams({
-                        'grant_type': 'password',
-                        'username': process.env.MW_USERNAME,
-                        'password': process.env.MW_PASSWORD
-                    })
-                });
-
-                if (!tokenResponse.ok) {
-                    const errorText = await tokenResponse.text();
-                    console.error("[ERROR] ManWinWin Auth Failed:", tokenResponse.status, errorText);
-                    return res.status(tokenResponse.status).send("Authentication Failed");
-                }
-
-                const tokenData = await tokenResponse.json();
-                const accessToken = tokenData.access_token;
-                const dataResponse = await fetch(`${apiBase}/MwwAPI/api/Items?Limit=5`, {
-                    headers: { 'Authorization': `Bearer ${accessToken}` }
-                });
-
-                if (!dataResponse.ok) {
-                    const errorText = await dataResponse.text();
-                    console.error("[ERROR] ManWinWin Data Fetch Failed:", dataResponse.status, errorText);
-                    return res.status(dataResponse.status).send("Data Fetch Failed");
-                }
-
-                const rawData = await dataResponse.json();
-                // Apply flattening
-                const flatData = flattenData(rawData);
-                res.json(flatData);
-
-            } catch (err) {
-                console.error("[ERROR] ManWinWin Proxy Error:", err);
-                res.status(500).send("Proxy Error");
-            }
-        }); */
-
-        // Random Data Generator
-        function generateRandomData() {
-            const count = Math.floor(Math.random() * 20) + 5; // 5 to 25 items
-            const data = [];
-            for (let i = 1; i <= count; i++) {
-                data.push({
-                    Id: i,
-                    Name: `Item ${i}`,
-                    Value: Math.floor(Math.random() * 1000),
-                    Category: Math.random() > 0.5 ? 'A' : 'B',
-                    Date: new Date().toISOString()
-                });
-            }
-            return data;
-        }
-
-        app.get('/api/random-data', (req, res) => {
-            const data = generateRandomData();
-            res.json(data);
-        });
 
         // SQL Data fetching
         app.get('/api/data', async (req, res) => {

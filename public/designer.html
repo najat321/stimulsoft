@@ -62,8 +62,6 @@
 
         var report = new Stimulsoft.Report.StiReport(); // 1. Create a new report instance
         var dataSet = null; // 2. Initialize data sets
-        var mwwDataSet = null;
-        var randomDataSet = null;
 
         (async () => {
             try {
@@ -86,37 +84,9 @@
                 dataSet = new Stimulsoft.System.Data.DataSet("SQLData");
                 dataSet.readJson(data);
 
-                report.regData("Customers", "Customers", dataSet);
                 report.regData("SQLData", "SQLData", dataSet);
 
-                // Fetch ManWinWin Data 
-                try {
-                    const mwwRes = await fetch('/api/mww/items');
-                    if (mwwRes.ok) {
-                        const mwwData = await mwwRes.json();
-                        mwwDataSet = new Stimulsoft.System.Data.DataSet("ManWinWin");
-                        mwwDataSet.readJson(mwwData);
-                        report.regData("ManWinWin", "Items", mwwDataSet);
-                    } else {
-                        console.warn("ManWinWin data fetch failed, skipping.");
-                    }
-                } catch (e) {
-                    console.warn("ManWinWin fetch error:", e);
-                }
-
-                // Random Data
-                try {
-                    const rndRes = await fetch('/api/random-data');
-                    if (rndRes.ok) {
-                        const rndData = await rndRes.json();
-                        randomDataSet = new Stimulsoft.System.Data.DataSet("RandomData");
-                        randomDataSet.readJson({ RandomItems: rndData }); // Wrap in object to create named table
-                        report.regData("RandomData", "RandomData", randomDataSet);
-                    }
-                } catch (e) {
-                    console.warn("Random data fetch error:", e);
-                }
-
+                
                 try {
                     // Populate report list
                     const reportsRes = await fetch('/api/reports');
@@ -131,8 +101,8 @@
                     });
 
                     // Set default if exists
-                    if (reports.includes("Report.mrt")) {
-                        select.value = "Report.mrt";
+                    if (reports.includes("ExampleReport.mrt")) {
+                        select.value = "ExampleReport.mrt";
                     }
 
                     // Initial load
@@ -169,23 +139,6 @@
                 if (dataSet) {
                     report.regData("SQLData", "SQLData", dataSet);
                 }
-                if (mwwDataSet) {
-                    report.regData("ManWinWin", "Items", mwwDataSet);
-                }
-
-                if (randomDataSet) {
-                    try {
-                        const rndRes = await fetch('/api/random-data');
-                        if (rndRes.ok) {
-                            const rndData = await rndRes.json();
-                            randomDataSet = new Stimulsoft.System.Data.DataSet("RandomData");
-                            randomDataSet.readJson({ RandomItems: rndData });
-                        }
-                    } catch (e) { console.warn("Random refresh failed", e); }
-
-                    report.regData("RandomData", "RandomData", randomDataSet);
-                }
-
                 report.dictionary.synchronize();
                 designer.report = report;
 

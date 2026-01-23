@@ -1,10 +1,11 @@
 {
   "ReportVersion": "2026.1.2",
-  "ReportGuid": "2581d7c3503a23f462eb3f644d36e446",
+  "ReportGuid": "1a3d60e5cc125c8d463fb5b54a181b18",
   "ReportName": "Report",
   "ReportAlias": "Report",
+  "ReportFile": "ExampleReport.mrt",
   "ReportCreated": "/Date(1769072650000+0800)/",
-  "ReportChanged": "/Date(1769072650000+0800)/",
+  "ReportChanged": "/Date(1769134192000+0800)/",
   "EngineVersion": "EngineV2",
   "ReportUnit": "Centimeters",
   "ScriptLanguage": "CSharp",
@@ -13,44 +14,6 @@
   "Dictionary": {
     "DataSources": {
       "0": {
-        "Ident": "StiDataTableSource",
-        "Name": "root",
-        "Alias": "root",
-        "Columns": {
-          "0": {
-            "Name": "CustomerID",
-            "NameInSource": "CustomerID",
-            "Alias": "CustomerID",
-            "Type": "System.Decimal"
-          },
-          "1": {
-            "Name": "FullName",
-            "NameInSource": "FullName",
-            "Alias": "FullName",
-            "Type": "System.String"
-          },
-          "2": {
-            "Name": "Email",
-            "NameInSource": "Email",
-            "Alias": "Email",
-            "Type": "System.String"
-          },
-          "3": {
-            "Name": "Country",
-            "NameInSource": "Country",
-            "Alias": "Country",
-            "Type": "System.String"
-          },
-          "4": {
-            "Name": "SignUpDate",
-            "NameInSource": "SignUpDate",
-            "Alias": "SignUpDate",
-            "Type": "System.DateTime"
-          }
-        },
-        "NameInSource": "Customers.root"
-      },
-      "1": {
         "Ident": "StiDataTableSource",
         "Name": "root_SubTypes",
         "Alias": "root_SubTypes",
@@ -70,7 +33,7 @@
         },
         "NameInSource": "ManWinWin.root_SubTypes"
       },
-      "2": {
+      "1": {
         "Ident": "StiDataTableSource",
         "Name": "root2",
         "Alias": "root",
@@ -192,71 +155,7 @@
         },
         "NameInSource": "ManWinWin.root"
       },
-      "3": {
-        "Ident": "StiDataTableSource",
-        "Name": "Customers",
-        "Alias": "Customers",
-        "Columns": {
-          "0": {
-            "Name": "CustomerID",
-            "NameInSource": "CustomerID",
-            "Alias": "CustomerID",
-            "Type": "System.Decimal"
-          },
-          "1": {
-            "Name": "FullName",
-            "NameInSource": "FullName",
-            "Alias": "FullName",
-            "Type": "System.String"
-          },
-          "2": {
-            "Name": "Email",
-            "NameInSource": "Email",
-            "Alias": "Email",
-            "Type": "System.String"
-          },
-          "3": {
-            "Name": "Country",
-            "NameInSource": "Country",
-            "Alias": "Country",
-            "Type": "System.String"
-          },
-          "4": {
-            "Name": "SignUpDate",
-            "NameInSource": "SignUpDate",
-            "Alias": "SignUpDate",
-            "Type": "System.DateTime"
-          }
-        },
-        "NameInSource": "Customers.Customers"
-      },
-      "4": {
-        "Ident": "StiDataTableSource",
-        "Name": "Materials",
-        "Alias": "Materials",
-        "Columns": {
-          "0": {
-            "Name": "matId",
-            "NameInSource": "matId",
-            "Alias": "matId",
-            "Type": "System.Decimal"
-          },
-          "1": {
-            "Name": "Name",
-            "NameInSource": "Name",
-            "Alias": "Name",
-            "Type": "System.String"
-          },
-          "2": {
-            "Name": "Description",
-            "NameInSource": "Description",
-            "Alias": "Description",
-            "Type": "System.String"
-          }
-        },
-        "NameInSource": "Customers.Materials"
-      },
-      "5": {
+      "2": {
         "Ident": "StiDataTableSource",
         "Name": "Customers2",
         "Alias": "Customers",
@@ -294,7 +193,7 @@
         },
         "NameInSource": "SQLData.Customers"
       },
-      "6": {
+      "3": {
         "Ident": "StiDataTableSource",
         "Name": "Materials2",
         "Alias": "Materials",
@@ -320,7 +219,7 @@
         },
         "NameInSource": "SQLData.Materials"
       },
-      "7": {
+      "4": {
         "Ident": "StiDataTableSource",
         "Name": "RandomItems",
         "Alias": "RandomItems",
@@ -358,501 +257,7 @@
         },
         "NameInSource": "RandomData.RandomItems"
       },
-      "8": {
-        "Ident": "StiDataTableSource",
-        "Name": "CEMS",
-        "Alias": "CEMS",
-        "Columns": {
-          "0": {
-            "Name": "id",
-            "NameInSource": "id",
-            "Alias": "id",
-            "Type": "System.String"
-          },
-          "1": {
-            "Name": "timestamp",
-            "NameInSource": "timestamp",
-            "Alias": "timestamp",
-            "Type": "System.DateTime"
-          },
-          "2": {
-            "Name": "so2",
-            "NameInSource": "so2",
-            "Alias": "so2",
-            "Type": "System.Decimal"
-          },
-          "3": {
-            "Name": "no2",
-            "NameInSource": "no2",
-            "Alias": "no2",
-            "Type": "System.Decimal"
-          },
-          "4": {
-            "Name": "co",
-            "NameInSource": "co",
-            "Alias": "co",
-            "Type": "System.Decimal"
-          },
-          "5": {
-            "Name": "o2",
-            "NameInSource": "o2",
-            "Alias": "o2",
-            "Type": "System.Decimal"
-          },
-          "6": {
-            "Name": "nmvoc",
-            "NameInSource": "nmvoc",
-            "Alias": "nmvoc",
-            "Type": "System.Decimal"
-          },
-          "7": {
-            "Name": "hcl",
-            "NameInSource": "hcl",
-            "Alias": "hcl",
-            "Type": "System.Decimal"
-          },
-          "8": {
-            "Name": "hf",
-            "NameInSource": "hf",
-            "Alias": "hf",
-            "Type": "System.Decimal"
-          },
-          "9": {
-            "Name": "dust",
-            "NameInSource": "dust",
-            "Alias": "dust",
-            "Type": "System.Decimal"
-          },
-          "10": {
-            "Name": "opacity",
-            "NameInSource": "opacity",
-            "Alias": "opacity",
-            "Type": "System.Decimal"
-          }
-        },
-        "NameInSource": "Customers.CEMS"
-      },
-      "9": {
-        "Ident": "StiDataTableSource",
-        "Name": "ClinicalWaste",
-        "Alias": "ClinicalWaste",
-        "Columns": {
-          "0": {
-            "Name": "id",
-            "NameInSource": "id",
-            "Alias": "id",
-            "Type": "System.Decimal"
-          },
-          "1": {
-            "Name": "record_date",
-            "NameInSource": "record_date",
-            "Alias": "record_date",
-            "Type": "System.DateTime"
-          },
-          "2": {
-            "Name": "waste_received_kg",
-            "NameInSource": "waste_received_kg",
-            "Alias": "waste_received_kg",
-            "Type": "System.Decimal"
-          },
-          "3": {
-            "Name": "daily_backlog_kg",
-            "NameInSource": "daily_backlog_kg",
-            "Alias": "daily_backlog_kg",
-            "Type": "System.Decimal"
-          },
-          "4": {
-            "Name": "is_manual_override",
-            "NameInSource": "is_manual_override",
-            "Alias": "is_manual_override",
-            "Type": "System.Boolean"
-          }
-        },
-        "NameInSource": "Customers.ClinicalWaste"
-      },
-      "10": {
-        "Ident": "StiDataTableSource",
-        "Name": "DriversCompliance",
-        "Alias": "DriversCompliance",
-        "Columns": {
-          "0": {
-            "Name": "id",
-            "NameInSource": "id",
-            "Alias": "id",
-            "Type": "System.Decimal"
-          },
-          "1": {
-            "Name": "submitDate",
-            "NameInSource": "submitDate",
-            "Alias": "submitDate",
-            "Type": "System.DateTime"
-          },
-          "2": {
-            "Name": "updatedDate",
-            "NameInSource": "updatedDate",
-            "Alias": "updatedDate",
-            "Type": "System.DateTime"
-          },
-          "3": {
-            "Name": "driverName",
-            "NameInSource": "driverName",
-            "Alias": "driverName",
-            "Type": "System.String"
-          },
-          "4": {
-            "Name": "licenseType",
-            "NameInSource": "licenseType",
-            "Alias": "licenseType",
-            "Type": "System.String"
-          },
-          "5": {
-            "Name": "expiryDate",
-            "NameInSource": "expiryDate",
-            "Alias": "expiryDate",
-            "Type": "System.DateTime"
-          },
-          "6": {
-            "Name": "remarks",
-            "NameInSource": "remarks",
-            "Alias": "remarks",
-            "Type": "System.String"
-          }
-        },
-        "NameInSource": "Customers.DriversCompliance"
-      },
-      "11": {
-        "Ident": "StiDataTableSource",
-        "Name": "IdleDowntime",
-        "Alias": "IdleDowntime",
-        "Columns": {
-          "0": {
-            "Name": "id",
-            "NameInSource": "id",
-            "Alias": "id",
-            "Type": "System.String"
-          },
-          "1": {
-            "Name": "timestamp",
-            "NameInSource": "timestamp",
-            "Alias": "timestamp",
-            "Type": "System.DateTime"
-          },
-          "2": {
-            "Name": "downtime",
-            "NameInSource": "downtime",
-            "Alias": "downtime",
-            "Type": "System.Decimal"
-          },
-          "3": {
-            "Name": "uptime",
-            "NameInSource": "uptime",
-            "Alias": "uptime",
-            "Type": "System.Decimal"
-          }
-        },
-        "NameInSource": "Customers.IdleDowntime"
-      },
-      "12": {
-        "Ident": "StiDataTableSource",
-        "Name": "ParameterLimits",
-        "Alias": "ParameterLimits",
-        "Columns": {
-          "0": {
-            "Name": "parameter",
-            "NameInSource": "parameter",
-            "Alias": "parameter",
-            "Type": "System.String"
-          },
-          "1": {
-            "Name": "limit_value",
-            "NameInSource": "limit_value",
-            "Alias": "limit_value",
-            "Type": "System.Decimal"
-          },
-          "2": {
-            "Name": "unit",
-            "NameInSource": "unit",
-            "Alias": "unit",
-            "Type": "System.String"
-          }
-        },
-        "NameInSource": "Customers.ParameterLimits"
-      },
-      "13": {
-        "Ident": "StiDataTableSource",
-        "Name": "StatutoryCompliance",
-        "Alias": "StatutoryCompliance",
-        "Columns": {
-          "0": {
-            "Name": "id",
-            "NameInSource": "id",
-            "Alias": "id",
-            "Type": "System.Decimal"
-          },
-          "1": {
-            "Name": "submitDate",
-            "NameInSource": "submitDate",
-            "Alias": "submitDate",
-            "Type": "System.DateTime"
-          },
-          "2": {
-            "Name": "updatedDate",
-            "NameInSource": "updatedDate",
-            "Alias": "updatedDate",
-            "Type": "System.DateTime"
-          },
-          "3": {
-            "Name": "statutory",
-            "NameInSource": "statutory",
-            "Alias": "statutory",
-            "Type": "System.String"
-          },
-          "4": {
-            "Name": "equipment",
-            "NameInSource": "equipment",
-            "Alias": "equipment",
-            "Type": "System.String"
-          },
-          "5": {
-            "Name": "licenseNo",
-            "NameInSource": "licenseNo",
-            "Alias": "licenseNo",
-            "Type": "System.String"
-          },
-          "6": {
-            "Name": "expiryDate",
-            "NameInSource": "expiryDate",
-            "Alias": "expiryDate",
-            "Type": "System.DateTime"
-          },
-          "7": {
-            "Name": "remarks",
-            "NameInSource": "remarks",
-            "Alias": "remarks",
-            "Type": "System.String"
-          }
-        },
-        "NameInSource": "Customers.StatutoryCompliance"
-      },
-      "14": {
-        "Ident": "StiDataTableSource",
-        "Name": "TestingKIP",
-        "Alias": "TestingKIP",
-        "Columns": {
-          "0": {
-            "Name": "id",
-            "NameInSource": "id",
-            "Alias": "id",
-            "Type": "System.String"
-          },
-          "1": {
-            "Name": "DateTime_Submit",
-            "NameInSource": "DateTime_Submit",
-            "Alias": "DateTime_Submit",
-            "Type": "System.DateTime"
-          },
-          "2": {
-            "Name": "Timer_Start",
-            "NameInSource": "Timer_Start",
-            "Alias": "Timer_Start",
-            "Type": "System.DateTime"
-          },
-          "3": {
-            "Name": "Timer_End",
-            "NameInSource": "Timer_End",
-            "Alias": "Timer_End",
-            "Type": "System.DateTime"
-          },
-          "4": {
-            "Name": "Timer_Planned",
-            "NameInSource": "Timer_Planned",
-            "Alias": "Timer_Planned",
-            "Type": "System.Decimal"
-          },
-          "5": {
-            "Name": "Timer_Unplanned",
-            "NameInSource": "Timer_Unplanned",
-            "Alias": "Timer_Unplanned",
-            "Type": "System.Decimal"
-          },
-          "6": {
-            "Name": "Timer_DeAsh",
-            "NameInSource": "Timer_DeAsh",
-            "Alias": "Timer_DeAsh",
-            "Type": "System.Decimal"
-          },
-          "7": {
-            "Name": "Timer_NoWaste",
-            "NameInSource": "Timer_NoWaste",
-            "Alias": "Timer_NoWaste",
-            "Type": "System.Decimal"
-          },
-          "8": {
-            "Name": "Timer_Others",
-            "NameInSource": "Timer_Others",
-            "Alias": "Timer_Others",
-            "Type": "System.Decimal"
-          },
-          "9": {
-            "Name": "Remarks_Planned",
-            "NameInSource": "Remarks_Planned",
-            "Alias": "Remarks_Planned",
-            "Type": "System.String"
-          },
-          "10": {
-            "Name": "Remarks_Unplanned",
-            "NameInSource": "Remarks_Unplanned",
-            "Alias": "Remarks_Unplanned",
-            "Type": "System.String"
-          },
-          "11": {
-            "Name": "Remarks_DeAsh",
-            "NameInSource": "Remarks_DeAsh",
-            "Alias": "Remarks_DeAsh",
-            "Type": "System.String"
-          },
-          "12": {
-            "Name": "Remarks_NoWaste",
-            "NameInSource": "Remarks_NoWaste",
-            "Alias": "Remarks_NoWaste",
-            "Type": "System.String"
-          },
-          "13": {
-            "Name": "Remarks_Others",
-            "NameInSource": "Remarks_Others",
-            "Alias": "Remarks_Others",
-            "Type": "System.String"
-          }
-        },
-        "NameInSource": "Customers.TestingKIP"
-      },
-      "15": {
-        "Ident": "StiDataTableSource",
-        "Name": "TransportCompliance",
-        "Alias": "TransportCompliance",
-        "Columns": {
-          "0": {
-            "Name": "id",
-            "NameInSource": "id",
-            "Alias": "id",
-            "Type": "System.Decimal"
-          },
-          "1": {
-            "Name": "submitDate",
-            "NameInSource": "submitDate",
-            "Alias": "submitDate",
-            "Type": "System.DateTime"
-          },
-          "2": {
-            "Name": "updatedDate",
-            "NameInSource": "updatedDate",
-            "Alias": "updatedDate",
-            "Type": "System.DateTime"
-          },
-          "3": {
-            "Name": "vehicleNo",
-            "NameInSource": "vehicleNo",
-            "Alias": "vehicleNo",
-            "Type": "System.String"
-          },
-          "4": {
-            "Name": "licenseType",
-            "NameInSource": "licenseType",
-            "Alias": "licenseType",
-            "Type": "System.String"
-          },
-          "5": {
-            "Name": "expiryDate",
-            "NameInSource": "expiryDate",
-            "Alias": "expiryDate",
-            "Type": "System.DateTime"
-          },
-          "6": {
-            "Name": "remarks",
-            "NameInSource": "remarks",
-            "Alias": "remarks",
-            "Type": "System.String"
-          }
-        },
-        "NameInSource": "Customers.TransportCompliance"
-      },
-      "16": {
-        "Ident": "StiDataTableSource",
-        "Name": "Users",
-        "Alias": "Users",
-        "Columns": {
-          "0": {
-            "Name": "id",
-            "NameInSource": "id",
-            "Alias": "id",
-            "Type": "System.String"
-          },
-          "1": {
-            "Name": "username",
-            "NameInSource": "username",
-            "Alias": "username",
-            "Type": "System.String"
-          },
-          "2": {
-            "Name": "password",
-            "NameInSource": "password",
-            "Alias": "password",
-            "Type": "System.String"
-          },
-          "3": {
-            "Name": "email_address",
-            "NameInSource": "email_address",
-            "Alias": "email_address",
-            "Type": "System.String"
-          },
-          "4": {
-            "Name": "full_name",
-            "NameInSource": "full_name",
-            "Alias": "full_name",
-            "Type": "System.String"
-          },
-          "5": {
-            "Name": "issue_on",
-            "NameInSource": "issue_on",
-            "Alias": "issue_on",
-            "Type": "System.String"
-          },
-          "6": {
-            "Name": "issue_by",
-            "NameInSource": "issue_by",
-            "Alias": "issue_by",
-            "Type": "System.String"
-          }
-        },
-        "NameInSource": "Customers.Users"
-      },
-      "17": {
-        "Ident": "StiDataTableSource",
-        "Name": "WasteTreated",
-        "Alias": "WasteTreated",
-        "Columns": {
-          "0": {
-            "Name": "id",
-            "NameInSource": "id",
-            "Alias": "id",
-            "Type": "System.String"
-          },
-          "1": {
-            "Name": "timestamp",
-            "NameInSource": "timestamp",
-            "Alias": "timestamp",
-            "Type": "System.DateTime"
-          },
-          "2": {
-            "Name": "daily_waste_treated",
-            "NameInSource": "daily_waste_treated",
-            "Alias": "daily_waste_treated",
-            "Type": "System.Decimal"
-          }
-        },
-        "NameInSource": "Customers.WasteTreated"
-      },
-      "18": {
+      "5": {
         "Ident": "StiDataTableSource",
         "Name": "CEMS2",
         "Alias": "CEMS",
@@ -926,7 +331,7 @@
         },
         "NameInSource": "SQLData.CEMS"
       },
-      "19": {
+      "6": {
         "Ident": "StiDataTableSource",
         "Name": "ClinicalWaste2",
         "Alias": "ClinicalWaste",
@@ -964,7 +369,7 @@
         },
         "NameInSource": "SQLData.ClinicalWaste"
       },
-      "20": {
+      "7": {
         "Ident": "StiDataTableSource",
         "Name": "DriversCompliance2",
         "Alias": "DriversCompliance",
@@ -1014,7 +419,7 @@
         },
         "NameInSource": "SQLData.DriversCompliance"
       },
-      "21": {
+      "8": {
         "Ident": "StiDataTableSource",
         "Name": "IdleDowntime2",
         "Alias": "IdleDowntime",
@@ -1046,7 +451,7 @@
         },
         "NameInSource": "SQLData.IdleDowntime"
       },
-      "22": {
+      "9": {
         "Ident": "StiDataTableSource",
         "Name": "ParameterLimits2",
         "Alias": "ParameterLimits",
@@ -1072,7 +477,7 @@
         },
         "NameInSource": "SQLData.ParameterLimits"
       },
-      "23": {
+      "10": {
         "Ident": "StiDataTableSource",
         "Name": "StatutoryCompliance2",
         "Alias": "StatutoryCompliance",
@@ -1128,7 +533,7 @@
         },
         "NameInSource": "SQLData.StatutoryCompliance"
       },
-      "24": {
+      "11": {
         "Ident": "StiDataTableSource",
         "Name": "TestingKIP2",
         "Alias": "TestingKIP",
@@ -1220,7 +625,7 @@
         },
         "NameInSource": "SQLData.TestingKIP"
       },
-      "25": {
+      "12": {
         "Ident": "StiDataTableSource",
         "Name": "TransportCompliance2",
         "Alias": "TransportCompliance",
@@ -1270,7 +675,7 @@
         },
         "NameInSource": "SQLData.TransportCompliance"
       },
-      "26": {
+      "13": {
         "Ident": "StiDataTableSource",
         "Name": "Users2",
         "Alias": "Users",
@@ -1320,7 +725,7 @@
         },
         "NameInSource": "SQLData.Users"
       },
-      "27": {
+      "14": {
         "Ident": "StiDataTableSource",
         "Name": "WasteTreated2",
         "Alias": "WasteTreated",
@@ -1473,6 +878,11 @@
           "Name": "Data",
           "CanGrow": true,
           "ClientRectangle": "0,2.6,27.69,2.4",
+          "Expressions": {
+            "0": {
+              "Name": "CountData"
+            }
+          },
           "Interaction": {
             "Ident": "StiBandInteraction"
           },
@@ -1595,7 +1005,7 @@
                 "Ident": "StiInteraction"
               },
               "Text": {
-                "Value": "{DriversCompliance.id}"
+                "Value": "{DriversCompliance2.id}"
               },
               "VertAlignment": "Center",
               "Border": "All;105,105,105;;;;;;solid:105,105,105",
@@ -1604,6 +1014,7 @@
               "TextOptions": {
                 "WordWrap": true
               },
+              "Type": "Expression",
               "ID": 5
             },
             "6": {
@@ -1617,7 +1028,7 @@
                 "Ident": "StiInteraction"
               },
               "Text": {
-                "Value": "{DriversCompliance.driverName}"
+                "Value": "{DriversCompliance2.driverName}"
               },
               "VertAlignment": "Center",
               "Border": "All;105,105,105;;;;;;solid:105,105,105",
@@ -1626,6 +1037,7 @@
               "TextOptions": {
                 "WordWrap": true
               },
+              "Type": "Expression",
               "ID": 6
             },
             "7": {
@@ -1639,7 +1051,7 @@
                 "Ident": "StiInteraction"
               },
               "Text": {
-                "Value": "{DriversCompliance.licenseType}"
+                "Value": "{DriversCompliance2.licenseType}"
               },
               "VertAlignment": "Center",
               "Border": "All;105,105,105;;;;;;solid:105,105,105",
@@ -1648,6 +1060,7 @@
               "TextOptions": {
                 "WordWrap": true
               },
+              "Type": "Expression",
               "ID": 7
             },
             "8": {
@@ -1661,7 +1074,7 @@
                 "Ident": "StiInteraction"
               },
               "Text": {
-                "Value": "{DriversCompliance.expiryDate}"
+                "Value": "{DriversCompliance2.expiryDate}"
               },
               "VertAlignment": "Center",
               "Border": "All;105,105,105;;;;;;solid:105,105,105",
@@ -1670,6 +1083,7 @@
               "TextOptions": {
                 "WordWrap": true
               },
+              "Type": "Expression",
               "ID": 8
             },
             "9": {
@@ -1683,7 +1097,7 @@
                 "Ident": "StiInteraction"
               },
               "Text": {
-                "Value": "{DriversCompliance.remarks}"
+                "Value": "{DriversCompliance2.remarks}"
               },
               "VertAlignment": "Center",
               "Border": "All;105,105,105;;;;;;solid:105,105,105",
@@ -1692,6 +1106,7 @@
               "TextOptions": {
                 "WordWrap": true
               },
+              "Type": "Expression",
               "ID": 9
             },
             "10": {
@@ -1760,7 +1175,7 @@
               "ID": 14
             }
           },
-          "DataSourceName": "DriversCompliance",
+          "DataSourceName": "DriversCompliance2",
           "Sort": {
             "0": "ASC",
             "1": "id",
