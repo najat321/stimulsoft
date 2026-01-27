@@ -111,6 +111,9 @@ async function startServer() {
                 const transport = await pool.request().query("SELECT * FROM transport_compliance");
                 const users = await pool.request().query("SELECT * FROM users");
                 const wasteTreated = await pool.request().query("SELECT * FROM Waste_Treated");
+                const yieldLoss = await pool.request().query("SELECT * FROM YieldLoss");
+                const stockOnHand = await pool.request().query("SELECT * FROM StockOnHand");
+                const lotTrace = await pool.request().query("SELECT * FROM LotTrace");
 
                 // 2. Create the Unified Compliances Table
                 // use UNION ALL to stack them
@@ -159,7 +162,12 @@ async function startServer() {
                     TestingKIP: testingKIP.recordset,
                     TransportCompliance: transport.recordset,
                     Users: users.recordset,
-                    WasteTreated: wasteTreated.recordset
+                    WasteTreated: wasteTreated.recordset,
+
+                    // --- ADD NEW TABLES HERE ---
+                    YieldLoss: yieldLoss.recordset,
+                    StockOnHand: stockOnHand.recordset,
+                    LotTrace: lotTrace.recordset
                 });
             } catch (e) {
                 console.error("[ERROR] SQL Query Failed:", e.message);
