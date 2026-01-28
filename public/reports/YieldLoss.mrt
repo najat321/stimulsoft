@@ -1,11 +1,11 @@
 {
   "ReportVersion": "2026.1.2",
-  "ReportGuid": "0091ef4ffc553f4793db556fb09ace3d",
+  "ReportGuid": "8ce192f40e3caf3ab71a8710cbf80f98",
   "ReportName": "Report",
   "ReportAlias": "Report",
-  "ReportFile": "reports/LotTrace.mrt",
-  "ReportCreated": "/Date(1769504143000+0800)/",
-  "ReportChanged": "/Date(1769568380000+0800)/",
+  "ReportFile": "YieldLoss.mrt",
+  "ReportCreated": "/Date(1769565860000+0800)/",
+  "ReportChanged": "/Date(1769567229000+0800)/",
   "EngineVersion": "EngineV2",
   "ReportUnit": "Centimeters",
   "ScriptLanguage": "CSharp",
@@ -17,10 +17,10 @@
         "Name": "Customer",
         "DialogInfo": {
           "DateTimeType": "DateAndTime",
-          "SortField": "Key",
+          "SortDirection": "None",
           "ItemsInitializationType": "Columns",
-          "KeysColumn": "LotTrace.Customer",
-          "ValuesColumn": "LotTrace.Customer",
+          "KeysColumn": "YieldLoss.Customer",
+          "ValuesColumn": "YieldLoss.Customer",
           "CheckedColumn": ";"
         },
         "Alias": "Customer",
@@ -29,7 +29,7 @@
         "ShowOnParametersPanel": true
       },
       "1": {
-        "Value": "1/1/2025 12:00:00 AM",
+        "Value": "10/1/2025 12:00:00 AM",
         "Name": "DateFrom",
         "DialogInfo": {
           "SortDirection": "None"
@@ -40,7 +40,7 @@
         "ShowOnParametersPanel": true
       },
       "2": {
-        "Value": "12/27/2026 12:00:00 AM",
+        "Value": "10/31/2025 12:00:00 AM",
         "Name": "DateTo",
         "DialogInfo": {
           "SortDirection": "None"
@@ -51,109 +51,31 @@
         "ShowOnParametersPanel": true
       },
       "3": {
-        "Name": "Spec",
+        "Name": "SerLotNo",
         "DialogInfo": {
           "DateTimeType": "DateAndTime",
           "SortField": "Key",
           "ItemsInitializationType": "Columns",
-          "KeysColumn": "LotTrace.MaterialSpec",
-          "ValuesColumn": "LotTrace.MaterialSpec",
+          "KeysColumn": "YieldLoss.SerLotNo",
+          "ValuesColumn": "YieldLoss.SerLotNo",
           "CheckedColumn": ";"
         },
-        "Alias": "Spec",
+        "Alias": "Ser_Lot_No.",
         "Type": "System.String",
         "RequestFromUser": true,
         "ShowOnParametersPanel": true
       },
       "4": {
-        "Name": "CoilNo",
+        "Name": "Size",
         "DialogInfo": {
           "DateTimeType": "DateAndTime",
-          "SortField": "Key",
+          "SortDirection": "None",
           "ItemsInitializationType": "Columns",
-          "KeysColumn": "LotTrace.MycronCoilNumber",
-          "ValuesColumn": "LotTrace.MycronCoilNumber",
+          "KeysColumn": "YieldLoss.Size",
+          "ValuesColumn": "YieldLoss.Size",
           "CheckedColumn": ";"
         },
-        "Alias": "CoilNo",
-        "Type": "System.String",
-        "RequestFromUser": true,
-        "ShowOnParametersPanel": true
-      },
-      "5": {
-        "Name": "HRCNo",
-        "DialogInfo": {
-          "DateTimeType": "DateAndTime",
-          "SortField": "Key",
-          "ItemsInitializationType": "Columns",
-          "KeysColumn": "LotTrace.HrcNumber",
-          "ValuesColumn": "LotTrace.HrcNumber",
-          "CheckedColumn": ";"
-        },
-        "Alias": "HRC No.",
-        "Type": "System.String",
-        "RequestFromUser": true,
-        "ShowOnParametersPanel": true
-      },
-      "6": {
-        "Name": "Location",
-        "DialogInfo": {
-          "DateTimeType": "DateAndTime",
-          "SortField": "Key",
-          "ItemsInitializationType": "Columns",
-          "KeysColumn": "LotTrace.Location",
-          "ValuesColumn": "LotTrace.Location",
-          "CheckedColumn": ";"
-        },
-        "Alias": "Location",
-        "Type": "System.String",
-        "RequestFromUser": true,
-        "ShowOnParametersPanel": true
-      },
-      "7": {
-        "Value": "MYCRON-QSP-12.4",
-        "Name": "FormNo",
-        "DialogInfo": {
-          "DateTimeType": "DateAndTime",
-          "SortDirection": "None"
-        },
-        "Alias": "Form No.",
-        "Type": "System.String",
-        "RequestFromUser": true,
-        "ShowOnParametersPanel": true
-      },
-      "8": {
-        "Value": "ISSUE NO:2",
-        "Name": "IssueNo",
-        "DialogInfo": {
-          "DateTimeType": "DateAndTime",
-          "SortDirection": "None"
-        },
-        "Alias": "Issue No",
-        "Type": "System.String",
-        "RequestFromUser": true,
-        "ShowOnParametersPanel": true
-      },
-      "9": {
-        "Value": "REV NO: 0",
-        "Name": "RevNo",
-        "DialogInfo": {
-          "DateTimeType": "DateAndTime",
-          "SortDirection": "None"
-        },
-        "Alias": "Rev No.",
-        "Type": "System.String",
-        "RequestFromUser": true,
-        "ShowOnParametersPanel": true
-      },
-      "10": {
-        "Value": "DATE: 2-09-2014",
-        "Name": "DateForm",
-        "DialogInfo": {
-          "DateTimeType": "DateAndTime",
-          "SortDirection": "None"
-        },
-        "Alias": "Date Form No.",
+        "Alias": "Size",
         "Type": "System.String",
         "RequestFromUser": true,
         "ShowOnParametersPanel": true
@@ -1237,7 +1159,7 @@
     "0": {
       "Ident": "StiPage",
       "Name": "Page1",
-      "Guid": "9acf57d60d9efc863efb4e395ef6e0e8",
+      "Guid": "643094defb52c23c7e1b97a21bd4cc29",
       "Interaction": {
         "Ident": "StiInteraction"
       },
@@ -1248,7 +1170,7 @@
           "Ident": "StiPageHeaderBand",
           "Name": "PageHeaderBand1",
           "CanGrow": true,
-          "ClientRectangle": "0,0.4,27.69,1.2",
+          "ClientRectangle": "0,0.4,27.69,0.8",
           "Interaction": {
             "Ident": "StiInteraction"
           },
@@ -1257,46 +1179,104 @@
           "Components": {
             "0": {
               "Ident": "StiText",
-              "Name": "Text1",
-              "ClientRectangle": "18,0,3.8,0.6",
-              "Interaction": {
-                "Ident": "StiInteraction"
-              },
-              "Text": {
-                "Value": "{FormNo}"
-              },
-              "Font": "Times New Roman;9;;",
-              "Border": ";105,105,105;;Double;;;;solid:105,105,105",
-              "Brush": "solid:",
-              "TextBrush": "solid:0,0,0",
-              "Type": "Expression"
-            },
-            "1": {
-              "Ident": "StiText",
-              "Name": "Text2",
-              "ClientRectangle": "2.2,0.6,3,0.6",
+              "Name": "Text12",
+              "ClientRectangle": "0,0.2,1.8,0.6",
               "Interaction": {
                 "Ident": "StiInteraction"
               },
               "Text": {
                 "Value": "{Today}"
               },
-              "Font": ";9;;",
-              "Border": ";105,105,105;;Double;;;;solid:105,105,105",
+              "VertAlignment": "Center",
+              "Border": ";;;;;;;solid:0,0,0",
               "Brush": "solid:",
               "TextBrush": "solid:0,0,0",
               "TextFormat": {
                 "Ident": "StiDateFormatService"
               },
-              "Type": "SystemVariables"
+              "Type": "Expression"
+            },
+            "1": {
+              "Ident": "StiText",
+              "Name": "Text13",
+              "Guid": "c3a02d886edaf180a38cce44bc1d70d5",
+              "ClientRectangle": "12,0.2,1.6,0.6",
+              "Interaction": {
+                "Ident": "StiInteraction"
+              },
+              "Text": {
+                "Value": "FR"
+              },
+              "VertAlignment": "Center",
+              "Border": ";;;;;;;solid:0,0,0",
+              "Brush": "solid:",
+              "TextBrush": "solid:0,0,0",
+              "Type": "Expression"
+            },
+            "2": {
+              "Ident": "StiText",
+              "Name": "Text14",
+              "Guid": "f1b6f8c5926eceef6ff666131d8d9fdb",
+              "ClientRectangle": "15.2,0.2,2.8,0.6",
+              "Interaction": {
+                "Ident": "StiInteraction"
+              },
+              "Text": {
+                "Value": "{DateFrom}"
+              },
+              "VertAlignment": "Center",
+              "Border": ";;;;;;;solid:0,0,0",
+              "Brush": "solid:",
+              "TextBrush": "solid:0,0,0",
+              "TextFormat": {
+                "Ident": "StiDateFormatService"
+              },
+              "Type": "Expression"
+            },
+            "3": {
+              "Ident": "StiText",
+              "Name": "Text15",
+              "Guid": "c111c5d239e1a4d12efbda34b2b897e7",
+              "ClientRectangle": "20.6,0.2,1.6,0.6",
+              "Interaction": {
+                "Ident": "StiInteraction"
+              },
+              "Text": {
+                "Value": "TO"
+              },
+              "VertAlignment": "Center",
+              "Border": ";;;;;;;solid:0,0,0",
+              "Brush": "solid:",
+              "TextBrush": "solid:0,0,0",
+              "Type": "Expression"
+            },
+            "4": {
+              "Ident": "StiText",
+              "Name": "Text16",
+              "Guid": "b5b122e5cc2c9a88b1d12e6882c9e270",
+              "ClientRectangle": "23.6,0.2,2.8,0.6",
+              "Interaction": {
+                "Ident": "StiInteraction"
+              },
+              "Text": {
+                "Value": "{DateTo}"
+              },
+              "VertAlignment": "Center",
+              "Border": ";;;;;;;solid:0,0,0",
+              "Brush": "solid:",
+              "TextBrush": "solid:0,0,0",
+              "TextFormat": {
+                "Ident": "StiDateFormatService"
+              },
+              "Type": "Expression"
             }
           }
         },
         "1": {
-          "Ident": "StiReportTitleBand",
-          "Name": "ReportTitle",
+          "Ident": "StiHeaderBand",
+          "Name": "Header",
           "CanGrow": true,
-          "ClientRectangle": "0,2.4,27.69,1.4",
+          "ClientRectangle": "0,2,27.69,0.6",
           "Interaction": {
             "Ident": "StiInteraction"
           },
@@ -1305,29 +1285,225 @@
           "Components": {
             "0": {
               "Ident": "StiText",
-              "Name": "ReportTitleText",
-              "ClientRectangle": "0,0,27.69,1.4",
+              "Name": "HeaderText1",
+              "CanGrow": true,
+              "GrowToHeight": true,
+              "ClientRectangle": "3.4,0,4.4,0.6",
               "Interaction": {
                 "Ident": "StiInteraction"
               },
               "Text": {
-                "Value": "MYCRON - LOT TRACKING INQUIRY"
+                "Value": "SIZE"
               },
-              "HorAlignment": "Center",
               "VertAlignment": "Center",
-              "Font": "Times New Roman;10;Bold;",
+              "Font": "Times New Roman;10;Bold, Underline;",
               "Border": ";;;;;;;solid:Black",
               "Brush": "solid:",
               "TextBrush": "solid:Black",
+              "TextOptions": {
+                "WordWrap": true
+              },
+              "Type": "Expression"
+            },
+            "1": {
+              "Ident": "StiText",
+              "Name": "HeaderText2",
+              "CanGrow": true,
+              "GrowToHeight": true,
+              "ClientRectangle": "7.8,0,2.2,0.6",
+              "Interaction": {
+                "Ident": "StiInteraction"
+              },
+              "Text": {
+                "Value": "GROSS"
+              },
+              "VertAlignment": "Center",
+              "Font": "Times New Roman;10;Bold, Underline;",
+              "Border": ";;;;;;;solid:Black",
+              "Brush": "solid:",
+              "TextBrush": "solid:Black",
+              "TextOptions": {
+                "WordWrap": true
+              },
+              "Type": "Expression"
+            },
+            "2": {
+              "Ident": "StiText",
+              "Name": "HeaderText3",
+              "CanGrow": true,
+              "GrowToHeight": true,
+              "ClientRectangle": "10,0,2,0.6",
+              "Interaction": {
+                "Ident": "StiInteraction"
+              },
+              "Text": {
+                "Value": "LOC"
+              },
+              "VertAlignment": "Center",
+              "Font": "Times New Roman;10;Bold, Underline;",
+              "Border": ";;;;;;;solid:Black",
+              "Brush": "solid:",
+              "TextBrush": "solid:Black",
+              "TextOptions": {
+                "WordWrap": true
+              },
+              "Type": "Expression"
+            },
+            "3": {
+              "Ident": "StiText",
+              "Name": "HeaderText4",
+              "CanGrow": true,
+              "GrowToHeight": true,
+              "ClientRectangle": "12,0,3.2,0.6",
+              "Interaction": {
+                "Ident": "StiInteraction"
+              },
+              "Text": {
+                "Value": "SER_LOT_NO"
+              },
+              "VertAlignment": "Center",
+              "Font": "Times New Roman;10;Bold, Underline;",
+              "Border": ";;;;;;;solid:Black",
+              "Brush": "solid:",
+              "TextBrush": "solid:Black",
+              "TextOptions": {
+                "WordWrap": true
+              },
+              "Type": "Expression"
+            },
+            "4": {
+              "Ident": "StiText",
+              "Name": "HeaderText5",
+              "CanGrow": true,
+              "GrowToHeight": true,
+              "ClientRectangle": "15.2,0,2.6,0.6",
+              "Interaction": {
+                "Ident": "StiInteraction"
+              },
+              "Text": {
+                "Value": "NET"
+              },
+              "VertAlignment": "Center",
+              "Font": "Times New Roman;10;Bold, Underline;",
+              "Border": ";;;;;;;solid:Black",
+              "Brush": "solid:",
+              "TextBrush": "solid:Black",
+              "TextOptions": {
+                "WordWrap": true
+              },
+              "Type": "Expression"
+            },
+            "5": {
+              "Ident": "StiText",
+              "Name": "HeaderText6",
+              "CanGrow": true,
+              "GrowToHeight": true,
+              "ClientRectangle": "17.8,0,6,0.6",
+              "Interaction": {
+                "Ident": "StiInteraction"
+              },
+              "Text": {
+                "Value": "CUSTOMER"
+              },
+              "VertAlignment": "Center",
+              "Font": "Times New Roman;10;Bold, Underline;",
+              "Border": ";;;;;;;solid:Black",
+              "Brush": "solid:",
+              "TextBrush": "solid:Black",
+              "TextOptions": {
+                "WordWrap": true
+              },
+              "Type": "Expression"
+            },
+            "6": {
+              "Ident": "StiText",
+              "Name": "HeaderText7",
+              "CanGrow": true,
+              "GrowToHeight": true,
+              "ClientRectangle": "23.8,0,3.8,0.6",
+              "Interaction": {
+                "Ident": "StiInteraction"
+              },
+              "Text": {
+                "Value": "LOSS"
+              },
+              "VertAlignment": "Center",
+              "Font": "Times New Roman;10;Bold, Underline;",
+              "Border": ";;;;;;;solid:Black",
+              "Brush": "solid:",
+              "TextBrush": "solid:Black",
+              "TextOptions": {
+                "WordWrap": true
+              },
+              "Type": "Expression"
+            },
+            "7": {
+              "Ident": "StiText",
+              "Name": "Text1",
+              "Guid": "45ddaa743da897202e98ddb1bc611e5a",
+              "CanGrow": true,
+              "GrowToHeight": true,
+              "ClientRectangle": "0,0,1.6,0.6",
+              "Interaction": {
+                "Ident": "StiInteraction"
+              },
+              "Text": {
+                "Value": "TYPE"
+              },
+              "VertAlignment": "Center",
+              "Font": "Times New Roman;10;Bold, Underline;",
+              "Border": ";;;;;;;solid:Black",
+              "Brush": "solid:",
+              "TextBrush": "solid:Black",
+              "TextOptions": {
+                "WordWrap": true
+              },
+              "Type": "Expression"
+            },
+            "8": {
+              "Ident": "StiText",
+              "Name": "Text2",
+              "Guid": "9aaf14a63574012219ed63cf54c30d69",
+              "CanGrow": true,
+              "GrowToHeight": true,
+              "ClientRectangle": "1.6,0,1.8,0.6",
+              "Interaction": {
+                "Ident": "StiInteraction"
+              },
+              "Text": {
+                "Value": "MILL"
+              },
+              "VertAlignment": "Center",
+              "Font": "Times New Roman;10;Bold, Underline;",
+              "Border": ";;;;;;;solid:Black",
+              "Brush": "solid:",
+              "TextBrush": "solid:Black",
+              "TextOptions": {
+                "WordWrap": true
+              },
               "Type": "Expression"
             }
           }
         },
         "2": {
-          "Ident": "StiTable",
+          "Ident": "StiGroupHeaderBand",
+          "Name": "GroupHeaderBand1",
+          "CanGrow": true,
+          "ClientRectangle": "0,3.4,27.69,0.8",
+          "Interaction": {
+            "Ident": "StiBandInteraction"
+          },
+          "Border": ";;;;;;;solid:Black",
+          "Brush": "solid:",
+          "Condition": {
+            "Value": "{YieldLoss.Size}"
+          }
+        },
+        "3": {
+          "Ident": "StiDataBand",
           "Name": "Data",
           "CanGrow": true,
-          "ClientRectangle": "0,4.6,27.69,2.4",
+          "ClientRectangle": "0,5,27.69,0.6",
           "Expressions": {
             "0": {
               "Name": "CountData"
@@ -1340,891 +1516,223 @@
           "Brush": "solid:",
           "Components": {
             "0": {
-              "Ident": "StiTableCell",
-              "Name": "Data_Cell1",
+              "Ident": "StiText",
+              "Name": "DataText1",
               "CanGrow": true,
               "GrowToHeight": true,
-              "ClientRectangle": "0,0,2.4,0.79",
-              "Restrictions": "AllowMove, AllowSelect, AllowChange",
+              "ClientRectangle": "3.4,0,4.4,0.6",
               "Interaction": {
                 "Ident": "StiInteraction"
               },
               "Text": {
-                "Value": "MES MODULE DETAILS (MPS) & (PRODUCTION EXIT FORM)"
+                "Value": "{YieldLoss.Size}"
               },
-              "Font": "Courier New;10;Bold;",
-              "Border": ";105,105,105;;Double;;;;solid:105,105,105",
+              "VertAlignment": "Center",
+              "Border": ";;;;;;;solid:Black",
               "Brush": "solid:",
               "TextBrush": "solid:Black",
               "TextOptions": {
                 "WordWrap": true
               },
-              "Type": "Expression",
-              "ID": 0
+              "TextQuality": "Wysiwyg"
             },
             "1": {
-              "Ident": "StiTableCell",
-              "Name": "Data_Cell2",
+              "Ident": "StiText",
+              "Name": "DataText2",
               "CanGrow": true,
               "GrowToHeight": true,
-              "ClientRectangle": "2.4,0,2.4,0.79",
-              "Restrictions": "AllowMove, AllowSelect, AllowChange",
+              "ClientRectangle": "7.8,0,2.2,0.6",
               "Interaction": {
                 "Ident": "StiInteraction"
               },
               "Text": {
-                "Value": "LOC x HRSPEC/CRSPEC x HRTHICKNESS/CRTHICKNESS x HRWIDTH/TRIM"
+                "Value": "{YieldLoss.Gross}"
               },
-              "Font": "Courier New;10;Bold;",
-              "Border": ";105,105,105;;Double;;;;solid:105,105,105",
+              "VertAlignment": "Center",
+              "Border": ";;;;;;;solid:Black",
               "Brush": "solid:",
               "TextBrush": "solid:Black",
               "TextOptions": {
                 "WordWrap": true
               },
-              "Type": "Expression",
-              "ID": 1
+              "TextQuality": "Wysiwyg"
             },
             "2": {
-              "Ident": "StiTableCell",
-              "Name": "Data_Cell3",
+              "Ident": "StiText",
+              "Name": "DataText3",
               "CanGrow": true,
               "GrowToHeight": true,
-              "ClientRectangle": "4.8,0,1.6,0.79",
-              "Restrictions": "AllowMove, AllowSelect, AllowChange",
+              "ClientRectangle": "10,0,2,0.6",
               "Interaction": {
                 "Ident": "StiInteraction"
               },
               "Text": {
-                "Value": "SALES ORDER"
+                "Value": "{YieldLoss.Loc}"
               },
-              "Font": "Courier New;10;Bold;",
-              "Border": ";105,105,105;;Double;;;;solid:105,105,105",
+              "VertAlignment": "Center",
+              "Border": ";;;;;;;solid:Black",
               "Brush": "solid:",
               "TextBrush": "solid:Black",
               "TextOptions": {
                 "WordWrap": true
               },
-              "Type": "Expression",
-              "ID": 2
+              "TextQuality": "Wysiwyg"
             },
             "3": {
-              "Ident": "StiTableCell",
-              "Name": "Data_Cell4",
+              "Ident": "StiText",
+              "Name": "DataText4",
               "CanGrow": true,
               "GrowToHeight": true,
-              "ClientRectangle": "6.4,0,2.39,0.79",
-              "Restrictions": "AllowMove, AllowSelect, AllowChange",
+              "ClientRectangle": "12,0,3.2,0.6",
               "Interaction": {
                 "Ident": "StiInteraction"
               },
               "Text": {
-                "Value": "CUSTOMER"
+                "Value": "{YieldLoss.SerLotNo}"
               },
-              "Font": "Courier New;10;Bold;",
-              "Border": ";105,105,105;;Double;;;;solid:105,105,105",
+              "VertAlignment": "Center",
+              "Border": ";;;;;;;solid:Black",
               "Brush": "solid:",
               "TextBrush": "solid:Black",
               "TextOptions": {
                 "WordWrap": true
               },
-              "Type": "Expression",
-              "ID": 3
+              "TextQuality": "Wysiwyg"
             },
             "4": {
-              "Ident": "StiTableCell",
-              "Name": "Data_Cell5",
+              "Ident": "StiText",
+              "Name": "DataText5",
               "CanGrow": true,
               "GrowToHeight": true,
-              "ClientRectangle": "8.79,0,2.21,0.79",
-              "Restrictions": "AllowMove, AllowSelect, AllowChange",
+              "ClientRectangle": "15.2,0,2.6,0.6",
               "Interaction": {
                 "Ident": "StiInteraction"
               },
               "Text": {
-                "Value": "PRODUCTION ORDER"
+                "Value": "{YieldLoss.Net}"
               },
-              "Font": "Courier New;10;Bold;",
-              "Border": ";105,105,105;;Double;;;;solid:105,105,105",
+              "VertAlignment": "Center",
+              "Border": ";;;;;;;solid:Black",
               "Brush": "solid:",
               "TextBrush": "solid:Black",
               "TextOptions": {
                 "WordWrap": true
               },
-              "Type": "Expression",
-              "ID": 4
+              "TextQuality": "Wysiwyg"
             },
             "5": {
-              "Ident": "StiTableCell",
-              "Name": "Data_Cell6",
+              "Ident": "StiText",
+              "Name": "DataText6",
               "CanGrow": true,
               "GrowToHeight": true,
-              "ClientRectangle": "11.02,0,1.37,0.81",
-              "Restrictions": "AllowMove, AllowSelect, AllowChange",
+              "ClientRectangle": "17.8,0,6,0.6",
               "Interaction": {
                 "Ident": "StiInteraction"
               },
               "Text": {
-                "Value": "MYCRON COIL NUMBER"
+                "Value": "{YieldLoss.Customer}"
               },
-              "Font": "Courier New;10;Bold;",
-              "Border": ";105,105,105;;Double;;;;solid:105,105,105",
+              "VertAlignment": "Center",
+              "Border": ";;;;;;;solid:Black",
               "Brush": "solid:",
               "TextBrush": "solid:Black",
               "TextOptions": {
                 "WordWrap": true
               },
-              "Type": "Expression",
-              "ID": 5
+              "TextQuality": "Wysiwyg"
             },
             "6": {
-              "Ident": "StiTableCell",
-              "Name": "Data_Cell7",
+              "Ident": "StiText",
+              "Name": "DataText7",
               "CanGrow": true,
               "GrowToHeight": true,
-              "ClientRectangle": "12.4,0,1.6,0.81",
-              "Restrictions": "AllowMove, AllowSelect, AllowChange",
+              "ClientRectangle": "23.8,0,3.8,0.6",
               "Interaction": {
                 "Ident": "StiInteraction"
               },
               "Text": {
-                "Value": "HRC NO. (INPUT COIL FROM CPL)"
+                "Value": "{YieldLoss.Loss}"
               },
-              "Font": "Courier New;10;Bold;",
-              "Border": ";105,105,105;;Double;;;;solid:105,105,105",
+              "VertAlignment": "Center",
+              "Border": ";;;;;;;solid:Black",
               "Brush": "solid:",
               "TextBrush": "solid:Black",
               "TextOptions": {
                 "WordWrap": true
               },
-              "Type": "Expression",
-              "ID": 6
+              "TextQuality": "Wysiwyg"
             },
             "7": {
-              "Ident": "StiTableCell",
-              "Name": "Data_Cell8",
+              "Ident": "StiText",
+              "Name": "Text3",
+              "Guid": "be3e6d8707d591eb84244456301989b7",
               "CanGrow": true,
               "GrowToHeight": true,
-              "ClientRectangle": "14,0,2,0.8",
-              "Restrictions": "AllowMove, AllowSelect, AllowChange",
+              "ClientRectangle": "0,0,1.6,0.6",
               "Interaction": {
                 "Ident": "StiInteraction"
               },
-              "Text": {
-                "Value": "RECEIVED ON RECEIVING DATE(DMN)/ TRANSFER DATE(CHR) AND TIMESTAMP EVERY LINE"
-              },
-              "Font": "Courier New;10;Bold;",
-              "Border": ";105,105,105;;Double;;;;solid:105,105,105",
+              "VertAlignment": "Center",
+              "Border": ";;;;;;;solid:Black",
               "Brush": "solid:",
               "TextBrush": "solid:Black",
               "TextOptions": {
                 "WordWrap": true
               },
-              "Type": "Expression",
-              "ID": 7
+              "TextQuality": "Wysiwyg",
+              "Type": "Expression"
             },
             "8": {
-              "Ident": "StiTableCell",
-              "Name": "Data_Cell9",
+              "Ident": "StiText",
+              "Name": "Text4",
+              "Guid": "360f53f7f22e42930828e7588401b4dc",
               "CanGrow": true,
               "GrowToHeight": true,
-              "ClientRectangle": "16,0,1.8,0.81",
-              "Restrictions": "AllowMove, AllowSelect, AllowChange",
+              "ClientRectangle": "1.6,0,1.8,0.6",
               "Interaction": {
                 "Ident": "StiInteraction"
-              },
-              "Text": {
-                "Value": "LOCATION"
-              },
-              "Font": "Courier New;10;Bold;",
-              "Border": ";105,105,105;;Double;;;;solid:105,105,105",
-              "Brush": "solid:",
-              "TextBrush": "solid:Black",
-              "TextOptions": {
-                "WordWrap": true
-              },
-              "Type": "Expression",
-              "ID": 8
-            },
-            "9": {
-              "Ident": "StiTableCell",
-              "Name": "Data_Cell10",
-              "CanGrow": true,
-              "GrowToHeight": true,
-              "ClientRectangle": "17.81,0,1.98,0.81",
-              "Restrictions": "AllowMove, AllowSelect, AllowChange",
-              "Interaction": {
-                "Ident": "StiInteraction"
-              },
-              "Text": {
-                "Value": "WEIGHT (INPUT &  OUTPUT) EVERY LINE"
-              },
-              "Font": "Courier New;10;Bold;",
-              "Border": ";105,105,105;;Double;;;;solid:105,105,105",
-              "Brush": "solid:",
-              "TextBrush": "solid:Black",
-              "TextOptions": {
-                "WordWrap": true
-              },
-              "Type": "Expression",
-              "ID": 9
-            },
-            "10": {
-              "Ident": "StiTableCell",
-              "Name": "Data_Cell11",
-              "CanGrow": true,
-              "GrowToHeight": true,
-              "ClientRectangle": "19.79,0,2.01,0.81",
-              "Restrictions": "AllowMove, AllowSelect, AllowChange",
-              "Interaction": {
-                "Ident": "StiInteraction"
-              },
-              "Text": {
-                "Value": "WEIGHT (LOSS)"
-              },
-              "Font": "Courier New;10;Bold;",
-              "Border": ";105,105,105;;Double;;;;solid:105,105,105",
-              "Brush": "solid:",
-              "TextBrush": "solid:Black",
-              "TextOptions": {
-                "WordWrap": true
-              },
-              "Type": "Expression",
-              "ID": 10
-            },
-            "11": {
-              "Ident": "StiTableCell",
-              "Name": "Data_Cell12",
-              "CanGrow": true,
-              "GrowToHeight": true,
-              "ClientRectangle": "21.79,0,1.8,0.81",
-              "Restrictions": "AllowMove, AllowSelect, AllowChange",
-              "Interaction": {
-                "Ident": "StiInteraction"
-              },
-              "Text": {
-                "Value": "REF"
-              },
-              "Font": "Courier New;10;Bold;",
-              "Border": ";105,105,105;;Double;;;;solid:105,105,105",
-              "Brush": "solid:",
-              "TextBrush": "solid:Black",
-              "TextOptions": {
-                "WordWrap": true
-              },
-              "Type": "Expression",
-              "ID": 11
-            },
-            "12": {
-              "Ident": "StiTableCell",
-              "Name": "Data_Cell13",
-              "CanGrow": true,
-              "GrowToHeight": true,
-              "ClientRectangle": "23.6,0,2.21,0.81",
-              "Restrictions": "AllowMove, AllowSelect, AllowChange",
-              "Interaction": {
-                "Ident": "StiInteraction"
-              },
-              "Text": {
-                "Value": "DEFECT NAME"
-              },
-              "Font": "Courier New;10;Bold;",
-              "Border": ";105,105,105;;Double;;;;solid:105,105,105",
-              "Brush": "solid:",
-              "TextBrush": "solid:Black",
-              "TextOptions": {
-                "WordWrap": true
-              },
-              "Type": "Expression",
-              "ID": 12
-            },
-            "13": {
-              "Ident": "StiTableCell",
-              "Name": "Data_Cell14",
-              "CanGrow": true,
-              "GrowToHeight": true,
-              "ClientRectangle": "25.8,0,1.92,0.8",
-              "Restrictions": "AllowMove, AllowSelect, AllowChange",
-              "Interaction": {
-                "Ident": "StiInteraction"
-              },
-              "Text": {
-                "Value": "REMARKS"
-              },
-              "Font": "Courier New;10;Bold;",
-              "Border": ";105,105,105;;Double;;;;solid:105,105,105",
-              "Brush": "solid:",
-              "TextBrush": "solid:Black",
-              "TextOptions": {
-                "WordWrap": true
-              },
-              "Type": "Expression",
-              "ID": 13
-            },
-            "14": {
-              "Ident": "StiTableCell",
-              "Name": "Data_Cell15",
-              "CanGrow": true,
-              "GrowToHeight": true,
-              "ClientRectangle": "0,0.79,2.4,0.82",
-              "Restrictions": "AllowMove, AllowSelect, AllowChange",
-              "Interaction": {
-                "Ident": "StiInteraction"
-              },
-              "Text": {
-                "Value": "{LotTrace.MesModuleDetails}"
               },
               "VertAlignment": "Center",
-              "Border": ";105,105,105;;;;;;solid:105,105,105",
+              "Border": ";;;;;;;solid:Black",
               "Brush": "solid:",
               "TextBrush": "solid:Black",
               "TextOptions": {
                 "WordWrap": true
               },
-              "ID": 14
-            },
-            "15": {
-              "Ident": "StiTableCell",
-              "Name": "Data_Cell16",
-              "CanGrow": true,
-              "GrowToHeight": true,
-              "ClientRectangle": "2.4,0.79,2.4,0.82",
-              "Restrictions": "AllowMove, AllowSelect, AllowChange",
-              "Interaction": {
-                "Ident": "StiInteraction"
-              },
-              "Text": {
-                "Value": "{LotTrace.MaterialSpec}"
-              },
-              "VertAlignment": "Center",
-              "Border": ";105,105,105;;;;;;solid:105,105,105",
-              "Brush": "solid:",
-              "TextBrush": "solid:Black",
-              "TextOptions": {
-                "WordWrap": true
-              },
-              "ID": 15
-            },
-            "16": {
-              "Ident": "StiTableCell",
-              "Name": "Data_Cell17",
-              "CanGrow": true,
-              "GrowToHeight": true,
-              "ClientRectangle": "4.8,0.78,1.6,0.81",
-              "Restrictions": "AllowMove, AllowSelect, AllowChange",
-              "Interaction": {
-                "Ident": "StiInteraction"
-              },
-              "Text": {
-                "Value": "{LotTrace.SalesOrder}"
-              },
-              "VertAlignment": "Center",
-              "Border": ";105,105,105;;;;;;solid:105,105,105",
-              "Brush": "solid:",
-              "TextBrush": "solid:Black",
-              "TextOptions": {
-                "WordWrap": true
-              },
-              "ID": 16
-            },
-            "17": {
-              "Ident": "StiTableCell",
-              "Name": "Data_Cell18",
-              "CanGrow": true,
-              "GrowToHeight": true,
-              "ClientRectangle": "6.4,0.78,2.39,0.81",
-              "Restrictions": "AllowMove, AllowSelect, AllowChange",
-              "Interaction": {
-                "Ident": "StiInteraction"
-              },
-              "Text": {
-                "Value": "{LotTrace.Customer}"
-              },
-              "VertAlignment": "Center",
-              "Border": ";105,105,105;;;;;;solid:105,105,105",
-              "Brush": "solid:",
-              "TextBrush": "solid:Black",
-              "TextOptions": {
-                "WordWrap": true
-              },
-              "ID": 17
-            },
-            "18": {
-              "Ident": "StiTableCell",
-              "Name": "Data_Cell19",
-              "CanGrow": true,
-              "GrowToHeight": true,
-              "ClientRectangle": "8.79,0.78,2.21,0.81",
-              "Restrictions": "AllowMove, AllowSelect, AllowChange",
-              "Interaction": {
-                "Ident": "StiInteraction"
-              },
-              "Text": {
-                "Value": "{LotTrace.ProductionOrder}"
-              },
-              "VertAlignment": "Center",
-              "Border": ";105,105,105;;;;;;solid:105,105,105",
-              "Brush": "solid:",
-              "TextBrush": "solid:Black",
-              "TextOptions": {
-                "WordWrap": true
-              },
-              "ID": 18
-            },
-            "19": {
-              "Ident": "StiTableCell",
-              "Name": "Data_Cell20",
-              "CanGrow": true,
-              "GrowToHeight": true,
-              "ClientRectangle": "11.02,0.81,1.37,0.79",
-              "Restrictions": "AllowMove, AllowSelect, AllowChange",
-              "Interaction": {
-                "Ident": "StiInteraction"
-              },
-              "Text": {
-                "Value": "{LotTrace.MycronCoilNumber}"
-              },
-              "VertAlignment": "Center",
-              "Border": ";105,105,105;;;;;;solid:105,105,105",
-              "Brush": "solid:",
-              "TextBrush": "solid:Black",
-              "TextOptions": {
-                "WordWrap": true
-              },
-              "ID": 19
-            },
-            "20": {
-              "Ident": "StiTableCell",
-              "Name": "Data_Cell21",
-              "CanGrow": true,
-              "GrowToHeight": true,
-              "ClientRectangle": "12.4,0.81,1.6,0.79",
-              "Restrictions": "AllowMove, AllowSelect, AllowChange",
-              "Interaction": {
-                "Ident": "StiInteraction"
-              },
-              "Text": {
-                "Value": "{LotTrace.HrcNumber}"
-              },
-              "VertAlignment": "Center",
-              "Border": ";105,105,105;;;;;;solid:105,105,105",
-              "Brush": "solid:",
-              "TextBrush": "solid:Black",
-              "TextOptions": {
-                "WordWrap": true
-              },
-              "ID": 20
-            },
-            "21": {
-              "Ident": "StiTableCell",
-              "Name": "Data_Cell22",
-              "CanGrow": true,
-              "GrowToHeight": true,
-              "ClientRectangle": "14,0.8,2,0.8",
-              "Restrictions": "AllowMove, AllowSelect, AllowChange",
-              "Interaction": {
-                "Ident": "StiInteraction"
-              },
-              "Text": {
-                "Value": "{LotTrace.ReceivedDate}"
-              },
-              "VertAlignment": "Center",
-              "Border": ";105,105,105;;;;;;solid:105,105,105",
-              "Brush": "solid:",
-              "TextBrush": "solid:Black",
-              "TextOptions": {
-                "WordWrap": true
-              },
-              "TextFormat": {
-                "Ident": "StiDateFormatService"
-              },
-              "ID": 21
-            },
-            "22": {
-              "Ident": "StiTableCell",
-              "Name": "Data_Cell23",
-              "CanGrow": true,
-              "GrowToHeight": true,
-              "ClientRectangle": "16,0.81,1.8,0.79",
-              "Restrictions": "AllowMove, AllowSelect, AllowChange",
-              "Interaction": {
-                "Ident": "StiInteraction"
-              },
-              "Text": {
-                "Value": "{LotTrace.Location}"
-              },
-              "VertAlignment": "Center",
-              "Border": ";105,105,105;;;;;;solid:105,105,105",
-              "Brush": "solid:",
-              "TextBrush": "solid:Black",
-              "TextOptions": {
-                "WordWrap": true
-              },
-              "ID": 22
-            },
-            "23": {
-              "Ident": "StiTableCell",
-              "Name": "Data_Cell24",
-              "CanGrow": true,
-              "GrowToHeight": true,
-              "ClientRectangle": "17.81,0.81,1.98,0.79",
-              "Restrictions": "AllowMove, AllowSelect, AllowChange",
-              "Interaction": {
-                "Ident": "StiInteraction"
-              },
-              "Text": {
-                "Value": "{LotTrace.WeightInputOutput}"
-              },
-              "VertAlignment": "Center",
-              "Border": ";105,105,105;;;;;;solid:105,105,105",
-              "Brush": "solid:",
-              "TextBrush": "solid:Black",
-              "TextOptions": {
-                "WordWrap": true
-              },
-              "ID": 23
-            },
-            "24": {
-              "Ident": "StiTableCell",
-              "Name": "Data_Cell25",
-              "CanGrow": true,
-              "GrowToHeight": true,
-              "ClientRectangle": "19.79,0.81,2.01,0.79",
-              "Restrictions": "AllowMove, AllowSelect, AllowChange",
-              "Interaction": {
-                "Ident": "StiInteraction"
-              },
-              "Text": {
-                "Value": "{LotTrace.WeightLoss}"
-              },
-              "VertAlignment": "Center",
-              "Border": ";105,105,105;;;;;;solid:105,105,105",
-              "Brush": "solid:",
-              "TextBrush": "solid:Black",
-              "TextOptions": {
-                "WordWrap": true
-              },
-              "ID": 24
-            },
-            "25": {
-              "Ident": "StiTableCell",
-              "Name": "Data_Cell26",
-              "CanGrow": true,
-              "GrowToHeight": true,
-              "ClientRectangle": "21.79,0.81,1.8,0.79",
-              "Restrictions": "AllowMove, AllowSelect, AllowChange",
-              "Interaction": {
-                "Ident": "StiInteraction"
-              },
-              "Text": {
-                "Value": "{LotTrace.Reference}"
-              },
-              "VertAlignment": "Center",
-              "Border": ";105,105,105;;;;;;solid:105,105,105",
-              "Brush": "solid:",
-              "TextBrush": "solid:Black",
-              "TextOptions": {
-                "WordWrap": true
-              },
-              "ID": 25
-            },
-            "26": {
-              "Ident": "StiTableCell",
-              "Name": "Data_Cell27",
-              "CanGrow": true,
-              "GrowToHeight": true,
-              "ClientRectangle": "23.6,0.81,2.21,0.79",
-              "Restrictions": "AllowMove, AllowSelect, AllowChange",
-              "Interaction": {
-                "Ident": "StiInteraction"
-              },
-              "Text": {
-                "Value": "{LotTrace.DefectName}"
-              },
-              "VertAlignment": "Center",
-              "Border": ";105,105,105;;;;;;solid:105,105,105",
-              "Brush": "solid:",
-              "TextBrush": "solid:Black",
-              "TextOptions": {
-                "WordWrap": true
-              },
-              "ID": 26
-            },
-            "27": {
-              "Ident": "StiTableCell",
-              "Name": "Data_Cell28",
-              "CanGrow": true,
-              "GrowToHeight": true,
-              "ClientRectangle": "25.8,0.8,1.92,0.8",
-              "Restrictions": "AllowMove, AllowSelect, AllowChange",
-              "Interaction": {
-                "Ident": "StiInteraction"
-              },
-              "Text": {
-                "Value": "{LotTrace.Remarks}"
-              },
-              "VertAlignment": "Center",
-              "Border": ";105,105,105;;;;;;solid:105,105,105",
-              "Brush": "solid:",
-              "TextBrush": "solid:Black",
-              "TextOptions": {
-                "WordWrap": true
-              },
-              "ID": 27
-            },
-            "28": {
-              "Ident": "StiTableCell",
-              "Name": "Data_Cell29",
-              "ClientRectangle": "0,1.61,2.4,0.79",
-              "Restrictions": "AllowMove, AllowSelect, AllowChange",
-              "Interaction": {
-                "Ident": "StiInteraction"
-              },
-              "Border": ";105,105,105;;;;;;solid:105,105,105",
-              "Brush": "solid:",
-              "TextBrush": "solid:Black",
-              "ID": 28
-            },
-            "29": {
-              "Ident": "StiTableCell",
-              "Name": "Data_Cell30",
-              "ClientRectangle": "2.4,1.61,2.4,0.79",
-              "Restrictions": "AllowMove, AllowSelect, AllowChange",
-              "Interaction": {
-                "Ident": "StiInteraction"
-              },
-              "Border": ";105,105,105;;;;;;solid:105,105,105",
-              "Brush": "solid:",
-              "TextBrush": "solid:Black",
-              "ID": 29
-            },
-            "30": {
-              "Ident": "StiTableCell",
-              "Name": "Data_Cell31",
-              "ClientRectangle": "4.8,1.6,1.6,0.81",
-              "Restrictions": "AllowMove, AllowSelect, AllowChange",
-              "Interaction": {
-                "Ident": "StiInteraction"
-              },
-              "Border": ";105,105,105;;;;;;solid:105,105,105",
-              "Brush": "solid:",
-              "TextBrush": "solid:Black",
-              "ID": 30
-            },
-            "31": {
-              "Ident": "StiTableCell",
-              "Name": "Data_Cell32",
-              "ClientRectangle": "6.4,1.6,2.39,0.81",
-              "Restrictions": "AllowMove, AllowSelect, AllowChange",
-              "Interaction": {
-                "Ident": "StiInteraction"
-              },
-              "Border": ";105,105,105;;;;;;solid:105,105,105",
-              "Brush": "solid:",
-              "TextBrush": "solid:Black",
-              "ID": 31
-            },
-            "32": {
-              "Ident": "StiTableCell",
-              "Name": "Data_Cell33",
-              "ClientRectangle": "8.79,1.6,2.21,0.81",
-              "Restrictions": "AllowMove, AllowSelect, AllowChange",
-              "Interaction": {
-                "Ident": "StiInteraction"
-              },
-              "Border": ";105,105,105;;;;;;solid:105,105,105",
-              "Brush": "solid:",
-              "TextBrush": "solid:Black",
-              "ID": 32
-            },
-            "33": {
-              "Ident": "StiTableCell",
-              "Name": "Data_Cell34",
-              "ClientRectangle": "11.02,1.6,1.37,0.81",
-              "Restrictions": "AllowMove, AllowSelect, AllowChange",
-              "Interaction": {
-                "Ident": "StiInteraction"
-              },
-              "Border": ";105,105,105;;;;;;solid:105,105,105",
-              "Brush": "solid:",
-              "TextBrush": "solid:Black",
-              "ID": 33
-            },
-            "34": {
-              "Ident": "StiTableCell",
-              "Name": "Data_Cell35",
-              "ClientRectangle": "12.4,1.6,1.6,0.81",
-              "Restrictions": "AllowMove, AllowSelect, AllowChange",
-              "Interaction": {
-                "Ident": "StiInteraction"
-              },
-              "Border": ";105,105,105;;;;;;solid:105,105,105",
-              "Brush": "solid:",
-              "TextBrush": "solid:Black",
-              "ID": 34
-            },
-            "35": {
-              "Ident": "StiTableCell",
-              "Name": "Data_Cell36",
-              "ClientRectangle": "14,1.6,2,0.8",
-              "Restrictions": "AllowMove, AllowSelect, AllowChange",
-              "Interaction": {
-                "Ident": "StiInteraction"
-              },
-              "Border": ";105,105,105;;;;;;solid:105,105,105",
-              "Brush": "solid:",
-              "TextBrush": "solid:Black",
-              "ID": 35
-            },
-            "36": {
-              "Ident": "StiTableCell",
-              "Name": "Data_Cell37",
-              "ClientRectangle": "16,1.6,1.8,0.81",
-              "Restrictions": "AllowMove, AllowSelect, AllowChange",
-              "Interaction": {
-                "Ident": "StiInteraction"
-              },
-              "Border": ";105,105,105;;;;;;solid:105,105,105",
-              "Brush": "solid:",
-              "TextBrush": "solid:Black",
-              "ID": 36
-            },
-            "37": {
-              "Ident": "StiTableCell",
-              "Name": "Data_Cell38",
-              "ClientRectangle": "17.81,1.6,1.98,0.81",
-              "Restrictions": "AllowMove, AllowSelect, AllowChange",
-              "Interaction": {
-                "Ident": "StiInteraction"
-              },
-              "Border": ";105,105,105;;;;;;solid:105,105,105",
-              "Brush": "solid:",
-              "TextBrush": "solid:Black",
-              "ID": 37
-            },
-            "38": {
-              "Ident": "StiTableCell",
-              "Name": "Data_Cell39",
-              "ClientRectangle": "19.79,1.6,2.01,0.81",
-              "Restrictions": "AllowMove, AllowSelect, AllowChange",
-              "Interaction": {
-                "Ident": "StiInteraction"
-              },
-              "Border": ";105,105,105;;;;;;solid:105,105,105",
-              "Brush": "solid:",
-              "TextBrush": "solid:Black",
-              "ID": 38
-            },
-            "39": {
-              "Ident": "StiTableCell",
-              "Name": "Data_Cell40",
-              "ClientRectangle": "21.79,1.6,1.8,0.81",
-              "Restrictions": "AllowMove, AllowSelect, AllowChange",
-              "Interaction": {
-                "Ident": "StiInteraction"
-              },
-              "Border": ";105,105,105;;;;;;solid:105,105,105",
-              "Brush": "solid:",
-              "TextBrush": "solid:Black",
-              "ID": 39
-            },
-            "40": {
-              "Ident": "StiTableCell",
-              "Name": "Data_Cell41",
-              "ClientRectangle": "23.6,1.6,2.21,0.81",
-              "Restrictions": "AllowMove, AllowSelect, AllowChange",
-              "Interaction": {
-                "Ident": "StiInteraction"
-              },
-              "Border": ";105,105,105;;;;;;solid:105,105,105",
-              "Brush": "solid:",
-              "TextBrush": "solid:Black",
-              "ID": 40
-            },
-            "41": {
-              "Ident": "StiTableCell",
-              "Name": "Data_Cell42",
-              "ClientRectangle": "25.8,1.6,1.92,0.8",
-              "Restrictions": "AllowMove, AllowSelect, AllowChange",
-              "Interaction": {
-                "Ident": "StiInteraction"
-              },
-              "Border": ";105,105,105;;;;;;solid:105,105,105",
-              "Brush": "solid:",
-              "TextBrush": "solid:Black",
-              "ID": 41
+              "TextQuality": "Wysiwyg",
+              "Type": "Expression"
             }
           },
-          "DataSourceName": "LotTrace",
+          "DataSourceName": "YieldLoss",
           "Filters": {
             "0": {
               "Ident": "StiFilter",
               "Item": "Expression",
               "Expression": {
-                "Value": "{(Customer== \"\" || LotTrace.Customer == Customer)}"
+                "Value": "{(Size== \"\" || YieldLoss.Size== Size)}"
               }
             },
             "1": {
               "Ident": "StiFilter",
               "Item": "Expression",
               "Expression": {
-                "Value": "{(LotTrace.ReceivedDate != null)}"
+                "Value": "{(SerLotNo== \"\" || YieldLoss.SerLotNo== SerLotNo)}"
               }
             },
             "2": {
               "Ident": "StiFilter",
               "Item": "Expression",
               "Expression": {
-                "Value": "{(LotTrace.ReceivedDate >= DateFrom)}"
-              }
-            },
-            "3": {
-              "Ident": "StiFilter",
-              "Item": "Expression",
-              "Expression": {
-                "Value": "{(LotTrace.ReceivedDate <= DateTo)}"
-              }
-            },
-            "4": {
-              "Ident": "StiFilter",
-              "Item": "Expression",
-              "Expression": {
-                "Value": "{(Spec== \"\" || LotTrace.MaterialSpec == Spec)}"
-              }
-            },
-            "5": {
-              "Ident": "StiFilter",
-              "Item": "Expression",
-              "Expression": {
-                "Value": "{(CoilNo== \"\" || LotTrace.MycronCoilNumber == CoilNo)}"
-              }
-            },
-            "6": {
-              "Ident": "StiFilter",
-              "Item": "Expression",
-              "Expression": {
-                "Value": "{(HRCNo== \"\" || LotTrace.HrcNumber== HRCNo)}"
-              }
-            },
-            "7": {
-              "Ident": "StiFilter",
-              "Item": "Expression",
-              "Expression": {
-                "Value": "{(Location== \"\" || LotTrace.Location== Location)}"
+                "Value": "{(Customer== \"\" || YieldLoss.Customer== Customer)}"
               }
             }
-          },
-          "RowCount": 3,
-          "ColumnCount": 14,
-          "FooterRowsCount": 1,
-          "HeaderRowsCount": 1,
-          "NumberID": 42
+          }
         },
-        "3": {
-          "Ident": "StiFooterBand",
-          "Name": "FooterBand1",
+        "4": {
+          "Ident": "StiGroupFooterBand",
+          "Name": "GroupFooterBand1",
           "CanGrow": true,
-          "ClientRectangle": "0,7.8,27.69,0.8",
+          "ClientRectangle": "0,6.4,27.69,0.8",
           "Interaction": {
             "Ident": "StiInteraction"
           },
@@ -2233,59 +1741,122 @@
           "Components": {
             "0": {
               "Ident": "StiText",
-              "Name": "Text6",
-              "Guid": "aedf0040b15efd6550370e29f5385c9d",
-              "ClientRectangle": "2.4,0,2.4,0.6",
+              "Name": "Text5",
+              "ClientRectangle": "7.8,0,2.2,0.8",
               "Interaction": {
                 "Ident": "StiInteraction"
               },
               "Text": {
-                "Value": "{IssueNo}"
+                "Value": "{Sum(GroupHeaderBand1,YieldLoss.Gross)}"
               },
-              "HorAlignment": "Center",
               "VertAlignment": "Center",
-              "Border": "All;105,105,105;;;;;;solid:105,105,105",
+              "Border": "Top;;;;;;;solid:0,0,0",
               "Brush": "solid:",
-              "TextBrush": "solid:0,0,0",
-              "Type": "Expression"
+              "TextBrush": "solid:Black",
+              "Type": "Totals"
             },
             "1": {
               "Ident": "StiText",
-              "Name": "Text7",
-              "Guid": "e0c11d0f38ce361c992f061724686ed1",
-              "ClientRectangle": "4.8,0,1.6,0.6",
+              "Name": "Text6",
+              "Guid": "222e7b018c4cccc8ff95c327e986068e",
+              "ClientRectangle": "12,0,3.2,0.8",
               "Interaction": {
                 "Ident": "StiInteraction"
               },
               "Text": {
-                "Value": "{RevNo}"
+                "Value": "{Count(GroupHeaderBand1)}"
               },
-              "HorAlignment": "Center",
               "VertAlignment": "Center",
-              "Border": "All;105,105,105;;;;;;solid:105,105,105",
+              "Border": "Top;;;;;;;solid:0,0,0",
               "Brush": "solid:",
-              "TextBrush": "solid:0,0,0",
-              "Type": "Expression"
+              "TextBrush": "solid:Black",
+              "Type": "Totals"
             },
             "2": {
               "Ident": "StiText",
-              "Name": "Text8",
-              "Guid": "57b436d8ea00a38fa0ae7fb6dd1dee1b",
-              "ClientRectangle": "6.4,0,2.4,0.6",
+              "Name": "Text7",
+              "Guid": "f74eefbf46e88add555337985e6962e8",
+              "ClientRectangle": "15.2,0,2.6,0.8",
               "Interaction": {
                 "Ident": "StiInteraction"
               },
               "Text": {
-                "Value": "{DateForm}"
+                "Value": "{Sum(GroupHeaderBand1,YieldLoss.Net)}"
               },
-              "HorAlignment": "Center",
               "VertAlignment": "Center",
-              "Border": "All;105,105,105;;;;;;solid:105,105,105",
+              "Border": "Top;;;;;;;solid:0,0,0",
               "Brush": "solid:",
-              "TextBrush": "solid:0,0,0",
+              "TextBrush": "solid:Black",
+              "Type": "Totals"
+            },
+            "3": {
+              "Ident": "StiText",
+              "Name": "Text8",
+              "Guid": "c412638f32bc3f34a73f2d1b3c4439ca",
+              "ClientRectangle": "23.8,0,3.8,0.8",
+              "Interaction": {
+                "Ident": "StiInteraction"
+              },
+              "Text": {
+                "Value": "{Sum(GroupHeaderBand1,YieldLoss.Loss)}"
+              },
+              "VertAlignment": "Center",
+              "Border": "Top;;;;;;;solid:0,0,0",
+              "Brush": "solid:",
+              "TextBrush": "solid:Black",
+              "Type": "Totals"
+            },
+            "4": {
+              "Ident": "StiText",
+              "Name": "Text9",
+              "Guid": "b613fc6d93849f342aa220a98943bf32",
+              "ClientRectangle": "3.4,0,4.4,0.8",
+              "Interaction": {
+                "Ident": "StiInteraction"
+              },
+              "Border": "Top;;;;;;;solid:0,0,0",
+              "Brush": "solid:",
+              "TextBrush": "solid:Black",
+              "Type": "Expression"
+            },
+            "5": {
+              "Ident": "StiText",
+              "Name": "Text10",
+              "Guid": "81f186602aeb2ff273ae34b07577532d",
+              "ClientRectangle": "10,0,2,0.8",
+              "Interaction": {
+                "Ident": "StiInteraction"
+              },
+              "Border": "Top;;;;;;;solid:0,0,0",
+              "Brush": "solid:",
+              "TextBrush": "solid:Black",
+              "Type": "Expression"
+            },
+            "6": {
+              "Ident": "StiText",
+              "Name": "Text11",
+              "Guid": "b32ccbfc33c26d6c49fb96e7c3dc8808",
+              "ClientRectangle": "17.8,0,6,0.8",
+              "Interaction": {
+                "Ident": "StiInteraction"
+              },
+              "Border": "Top;;;;;;;solid:0,0,0",
+              "Brush": "solid:",
+              "TextBrush": "solid:Black",
               "Type": "Expression"
             }
           }
+        },
+        "5": {
+          "Ident": "StiFooterBand",
+          "Name": "Footer",
+          "CanGrow": true,
+          "ClientRectangle": "0,8,27.69,0.6",
+          "Interaction": {
+            "Ident": "StiInteraction"
+          },
+          "Border": ";;;;;;;solid:Black",
+          "Brush": "solid:"
         }
       },
       "Orientation": "Landscape",

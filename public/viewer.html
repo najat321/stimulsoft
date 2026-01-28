@@ -5,56 +5,95 @@
     <link href="/stimulsoft/Css/stimulsoft.viewer.office2013.whiteblue.css" rel="stylesheet">
     <script src="/stimulsoft/Scripts/stimulsoft.reports.js"></script>
     <script src="/stimulsoft/Scripts/stimulsoft.viewer.js"></script>
+    <style>
+        /* styling for the toolbar */
+        #toolbar {
+            padding: 10px;
+            background: #f0f0f0;
+            border-bottom: 1px solid #ccc;
+            font-family: Arial, sans-serif;
+        }
+        select { padding: 5px; }
+        button { padding: 5px 10px; cursor: pointer; }
+    </style>
 </head>
 
 <body>
+    <div id="toolbar">
+        <label for="reportSelect">Select Report: </label>
+        <select id="reportSelect"></select>
+        <button onclick="loadSelectedReport()">Load Report</button>
+    </div>
+
     <div id="viewerContent"></div>
 
     <script type="text/javascript">
-        // 1. Configure the Viewer Options
+        // 2. Configure Viewer
         var options = new Stimulsoft.Viewer.StiViewerOptions();
-        options.appearance.fullScreenMode = true; // Makes it fit the window
-        options.toolbar.viewMode = Stimulsoft.Viewer.StiWebViewMode.Continuous; // Better scrolling
+        options.appearance.fullScreenMode = false; // Set to false so it doesn't cover toolbar
+        options.toolbar.viewMode = Stimulsoft.Viewer.StiWebViewMode.Continuous;
         
         var viewer = new Stimulsoft.Viewer.StiViewer(options, "StiViewer", false);
         var report = new Stimulsoft.Report.StiReport();
+        var dataSet = null;
 
+        // 3. Initialize: Fetch Data & Report List
         (async () => {
             try {
-                // --- A. LOAD DATA ---
-                // fetch from '/api/data' because that is where server.js sends the "Compliances" table
-                const res = await fetch('/api/data');
-                const data = await res.json();
+                // A. Load SQL Data (One time fetch)
+                const dataRes = await fetch('/api/data');
+                const data = await dataRes.json();
 
-                // Create a DataSet and feed the JSON into it
-                var dataSet = new Stimulsoft.System.Data.DataSet("SQLData");
+                dataSet = new Stimulsoft.System.Data.DataSet("SQLData");
                 dataSet.readJson(data);
 
-                // --- B. LOAD REPORT ---
-                // Pointing to the specific file
-                try {
-                    report.loadFile("reports/Compliances.mrt");
-                } catch (e) {
-                    alert("Report file 'reports/Compliances.mrt' not found. Please save it in the Designer first.");
-                    return;
+                // B. Load List of Reports from Server
+                const reportsRes = await fetch('/api/reports');
+                const reports = await reportsRes.json();
+                
+                const select = document.getElementById('reportSelect');
+                
+                // C. Populate Dropdown
+                reports.forEach(r => {
+                    const option = document.createElement('option');
+                    option.value = r;
+                    option.text = r;
+                    select.appendChild(option);
+                });
+
+                // D. Load the first report automatically if available
+                if (reports.length > 0) {
+                    loadSelectedReport(); 
                 }
 
-                // --- C. REGISTER DATA & RENDER ---
-                // Register the data so the report can see the data
-                report.regData("SQLData", "SQLData", dataSet);
-                
-                // Synchronize ensures the dictionary structure matches the data
-                report.dictionary.synchronize();
-
-                // Assign to viewer and show
-                viewer.report = report;
-                viewer.renderHtml("viewerContent");
-
             } catch (err) {
-                console.error("Error loading viewer:", err);
-                document.body.innerHTML = "<h3>Error loading report. Check console (F12) for details.</h3>";
+                console.error("Error initializing viewer:", err);
+                document.getElementById("viewerContent").innerHTML = "Error loading data or reports.";
             }
         })();
+
+        // 4. Function to Load the Specific Report
+        function loadSelectedReport() {
+            const select = document.getElementById('reportSelect');
+            const fileName = select.value;
+            if (!fileName) return;
+
+            try {
+                // Load file from reports folder
+                report.loadFile("reports/" + fileName);
+
+                // Register Data
+                report.regData("SQLData", "SQLData", dataSet);
+                report.dictionary.synchronize();
+
+                // Render
+                viewer.report = report;
+                viewer.renderHtml("viewerContent");
+            } catch (e) {
+                alert("Failed to load " + fileName);
+                console.error(e);
+            }
+        }
     </script>
 </body>
 </html>
